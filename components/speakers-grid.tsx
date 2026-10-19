@@ -38,12 +38,12 @@ export default function SpeakersGrid({ speakers }: Props) {
               src={speaker.image.url}
               className={styles.image}
               loading="lazy"
-              quality="50"
+              quality={75}
               title={speaker.name}
               placeholder={speaker.image.blurDataURL ? 'blur' : 'empty'}
               blurDataURL={speaker.image.blurDataURL}
-              layout='fill'
-              objectFit='cover'
+              fill
+              sizes="(max-width: 479px) calc(100vw - 48px), (max-width: 899px) calc((100vw - 72px) / 2), (max-width: 1149px) calc((100vw - 104px) / 3), 262px"
             />
           </div>
           <div className={styles.cardBody}>

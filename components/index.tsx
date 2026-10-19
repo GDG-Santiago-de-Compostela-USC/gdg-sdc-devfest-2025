@@ -20,19 +20,23 @@ import Ticket from './ticket';
 import Layout from './layout';
 import ConfContainer from './conf-container';
 import Hero from './hero';
-import Form from './form';
-import LearnMore from './learn-more';
+import HomeSections from './home-sections';
+import type { SessionizeSpeaker, SessionizeTalk } from '@lib/sessionize';
 
 type Props = {
   defaultUserData: UserData;
   sharePage?: boolean;
   defaultPageState?: PageState;
+  speakers?: SessionizeSpeaker[];
+  talks?: SessionizeTalk[];
 };
 
 export default function Conf({
   defaultUserData,
   sharePage,
-  defaultPageState = 'registration'
+  defaultPageState = 'registration',
+  speakers = [],
+  talks = []
 }: Props) {
   const [userData, setUserData] = useState<UserData>(defaultUserData);
   const [pageState, setPageState] = useState<PageState>(defaultPageState);
@@ -46,21 +50,21 @@ export default function Conf({
       }}
     >
       <Layout>
-        <ConfContainer>
-          {pageState === 'registration' && !sharePage ? (
-            <>
-              <Hero />
-              {/*<Form />*/}
-            </>
-          ) : (
+        {pageState === 'registration' && !sharePage ? (
+          <>
+            <Hero />
+            <HomeSections speakers={speakers} talks={talks} />
+          </>
+        ) : (
+          <ConfContainer>
             <Ticket
               username={userData.username}
               name={userData.name}
               ticketNumber={userData.ticketNumber}
               sharePage={sharePage}
             />
-          )}
-        </ConfContainer>
+          </ConfContainer>
+        )}
       </Layout>
     </ConfDataContext.Provider>
   );

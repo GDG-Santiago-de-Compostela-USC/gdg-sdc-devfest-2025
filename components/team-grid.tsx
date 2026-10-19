@@ -15,7 +15,7 @@
  */
 
 import Image from 'next/image';
-import { Speaker, TeamMember } from '@lib/types';
+import { TeamMember } from '@lib/types';
 import styles from './team-grid.module.css';
 
 type Props = {
@@ -33,12 +33,12 @@ export default function TeamGrid({ teamMembers }: Props) {
               src={teamMember.image.url}
               className={styles.image}
               loading="lazy"
-              quality="50"
+              quality={75}
               title={teamMember.name}
               placeholder={teamMember.image.blurDataURL ? 'blur' : 'empty'}
               blurDataURL={teamMember.image.blurDataURL}
-              layout='fill'
-              objectFit='cover'
+              fill
+              sizes="(max-width: 479px) calc(100vw - 48px), (max-width: 899px) calc((100vw - 72px) / 2), (max-width: 1149px) calc((100vw - 104px) / 3), 262px"
             />
           </div>
           <div className={styles.cardBody}>

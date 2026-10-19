@@ -32,7 +32,8 @@ type Props = {
 export default function SpeakerPage({ speaker, talks }: Props) {
   const meta = {
     title: speaker.name + ' - ' + SITE_NAME,
-    description: META_DESCRIPTION
+    description:
+      (speaker.bio || speaker.title).replace(/\s+/g, ' ').trim().slice(0, 160) || META_DESCRIPTION
   };
 
   return (
@@ -50,7 +51,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   if (!speaker) {
     return {
-      notFound: true
+      notFound: true,
+      revalidate: 60
     };
   }
 

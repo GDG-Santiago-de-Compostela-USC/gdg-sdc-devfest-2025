@@ -1,7 +1,7 @@
 @keyframes unblur {
     to {
         filter: blur(100px);
-        opacity: 0.8;
+        opacity: 0.16;
     }
 }
 
@@ -114,5 +114,16 @@
 
     100% {
         background-position: 100% 50%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .colorBackground,
+    .colorBackgroundBottom {
+        animation: none;
+        animation-delay: 0s !important;
+        filter: blur(100px);
+        opacity: 0.16;
+        background-position: 50% 50%;
     }
 }

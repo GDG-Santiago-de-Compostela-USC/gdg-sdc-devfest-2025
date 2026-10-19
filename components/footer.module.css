@@ -1,114 +1,57 @@
-/**
- * Copyright 2020 Vercel Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 .footer {
-  margin: 0 auto;
   width: 100%;
-  font-size: 12px;
-  line-height: 1.5;
-  display: flex;
-  justify-content: center;
-  color: var(--foreground-secondary);
-  z-index: 2;
+  background: var(--soft);
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  margin-top: auto;
 }
-
-.footer-link {
-  display: inline-block;
-  padding: 6px 0;
-  color: var(--foreground-secondary);
-  font-size: 12px;
-  transition: color 0.2s ease;
-}
-
-.footer-link:hover {
-  color: #fff;
-}
-
-.footer-logo :global(svg) {
-  height: var(--space-4x);
-  transform: translateY(5px);
-  margin-left: 2px;
-}
-
 .footer-legal {
+  width: min(100% - 48px, 1180px);
+  margin: 0 auto;
+  padding: 32px 0;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  padding: var(--space-6x) var(--space-6x) var(--space-8x);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 20px;
 }
-
-.footer-copyright {
-  text-align: center;
-  margin-bottom: var(--space-3x);
-}
-
-.footer-separator {
+.footer-hostedby {
   display: none;
 }
-
+.footer-copyright {
+  font-size: 13px;
+  line-height: 1.7;
+}
 .footer-center-group {
   display: flex;
-  align-items: center;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  column-gap: var(--space-6x);
+  gap: 8px 24px;
 }
-
-@media screen and (min-width: 960px) {
-  .footer-hostedby {
-    display: none;
-  }
-
-  .footer-legal {
-    flex-direction: row;
-    padding: var(--space-4x) var(--space-6x);
-  }
-
-  .footer-copyright {
-    margin-bottom: 0;
-  }
-
-  .footer-center-group {
-    column-gap: 0;
-  }
-
-  .footer-separator {
-    margin: 0 10px;
-    height: var(--space-4x);
-    width: 1px;
-    background: var(--foreground-secondary);
-    display: block;
-  }
-}
-
 .footer-paragraph {
   margin: 0;
 }
-
-.secondary-text {
-  color: var(--foreground-secondary);
+.footer-link {
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
+}
+.footer-link:hover {
+  color: var(--brand-dark);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.footer-link:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 4px;
+}
+.footer-separator {
   display: none;
 }
-
-@media screen and (min-width: 390px) {
-  .secondary-text {
-    display: initial;
+@media (min-width: 1000px) {
+  .footer-legal {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
   }
 }

@@ -15,35 +15,19 @@
  */
 
 import cn from 'classnames';
-import VercelLogo from '@components/icons/icon-platform';
 import styles from './footer.module.css';
-import { COPYRIGHT_HOLDER, SITE_NAME, CODE_OF_CONDUCT, LEGAL_URL, REPO, BRAND_NAME } from '@lib/constants';
-
-export function HostedByVercel() {
-  return (<></>)
-  return (
-    <a
-      href="https://vercel.com"
-      className={cn(styles['footer-link'], styles['footer-logo'])}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div className={styles['secondary-text']}>Created by </div>
-      <VercelLogo color="white" />
-    </a>
-  );
-}
+import { COPYRIGHT_HOLDER, CODE_OF_CONDUCT, BRAND_NAME } from '@lib/constants';
 
 export default function Footer() {
   return (
     <footer className={cn(styles.footer)}>
       <div className={styles['footer-legal']}>
         <div className={styles['footer-hostedby']}>
-          <HostedByVercel />
           <div className={styles['footer-separator']} />
         </div>
         <div className={styles['footer-copyright']}>
-          Copyright © {`${new Date().getFullYear()} `} {COPYRIGHT_HOLDER || `${BRAND_NAME}.`} Todos los derechos reservados.
+          Copyright © {`${new Date().getFullYear()} `} {COPYRIGHT_HOLDER || `${BRAND_NAME}.`} Todos
+          los derechos reservados.
         </div>
         <div className={styles['footer-center-group']}>
           <p className={styles['footer-paragraph']}>
@@ -56,7 +40,7 @@ export default function Footer() {
               Instagram
             </a>
           </p>
-          <div className={styles['footer-separator']} ></div>
+          <div className={styles['footer-separator']}></div>
           <p className={styles['footer-paragraph']}>
             <a
               href="https://www.linkedin.com/company/11843951"
@@ -67,7 +51,7 @@ export default function Footer() {
               LinkedIn
             </a>
           </p>
-          <div className={styles['footer-separator']} ></div>
+          <div className={styles['footer-separator']}></div>
           <p className={styles['footer-paragraph']}>
             <a
               href="https://twitter.com/GDGSantiagoES"
@@ -78,14 +62,16 @@ export default function Footer() {
               Twitter
             </a>
           </p>
-          <div className={styles['footer-separator']} ></div>
+          <div className={styles['footer-separator']}></div>
           <p className={styles['footer-paragraph']}>
-            <span
+            <a
+              href={CODE_OF_CONDUCT}
               className={styles['footer-link']}
-              style={{ opacity: 0.5, cursor: 'not-allowed' }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Código de Conducta
-            </span>
+            </a>
           </p>
         </div>
       </div>

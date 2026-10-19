@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import Link from 'next/link';
 import Image from 'next/image';
 import cn from 'classnames';
 import { Sponsor } from '@lib/types';
@@ -24,24 +23,7 @@ type Props = {
   sponsors: Sponsor[];
 };
 
-function SponsorCard({ sponsor, tier }: { sponsor: Sponsor; tier: string }) {
-  const getTierColor = (tier: string) => {
-    switch (tier) {
-      case 'Platinum':
-        return '#fbbf24'; // Gold
-      case 'Gold':
-        return '#f59e0b'; // Orange-Gold
-      case 'Silver':
-        return '#94a3b8'; // Slate
-      case 'Bronze':
-        return '#fb923c'; // Orange
-      case 'Colaborador':
-        return '#10b981'; // Green
-      default:
-        return '#6b7280'; // Gray
-    }
-  };
-
+function SponsorCard({ sponsor }: { sponsor: Sponsor }) {
   const CardContent = (
     <div className={styles.card}>
       <div className={styles.logoSection}>
@@ -53,33 +35,21 @@ function SponsorCard({ sponsor, tier }: { sponsor: Sponsor; tier: string }) {
               className={cn(styles.logo, {
                 [styles.uscLogo]: sponsor.slug === 'usc' || sponsor.slug === 'etse',
               })}
-              width={300}
-              height={120}
-              style={{
-                width: '100%',
-                height: 'auto',
-                maxHeight: '80px',
-                objectFit: 'contain'
-              }}
+              fill
+              sizes="280px"
             />
           </div>
         ) : (
-          <div
-            className={styles.placeholder}
-            style={{ backgroundColor: getTierColor(tier) }}
-          >
+          <div className={styles.placeholder}>
             <span className={styles.placeholderText}>
-              {sponsor.name.split(' ').map(word => word[0]).join('').substring(0, 2)}
+              {sponsor.name}
             </span>
           </div>
         )}
       </div>
       <div className={styles.cardInfo}>
         <div>
-          <h2 className={styles.name}>{sponsor.name}</h2>
-          <p className={styles.tier}>
-            {tier === 'Colaborador' ? 'Partner' : `${tier} Sponsor`}
-          </p>
+          <h3 className={styles.name}>{sponsor.name}</h3>
           {sponsor.description && (
             <p className={styles.description}>
               {sponsor.description}
@@ -96,7 +66,7 @@ function SponsorCard({ sponsor, tier }: { sponsor: Sponsor; tier: string }) {
         href={sponsor.website}
         target="_blank"
         rel="noopener noreferrer"
-        style={{ textDecoration: 'none', color: 'inherit' }}
+        className={styles.cardLink}
       >
         {CardContent}
       </a>
@@ -128,7 +98,6 @@ const TierSection = ({
           <SponsorCard 
             key={sponsor.slug || sponsor.name} 
             sponsor={sponsor} 
-            tier={tier}
           />
         ))}
       </div>
@@ -148,31 +117,31 @@ export default function SponsorsGrid({ sponsors }: Props) {
       <TierSection
         tier="Platinum"
         sponsors={platinumSponsors}
-        title="PLATINUM"
+        title="Platino"
       />
 
       <TierSection
         tier="Gold"
         sponsors={goldSponsors}
-        title="GOLD"
+        title="Oro"
       />
 
       <TierSection
         tier="Silver"
         sponsors={silverSponsors}
-        title="SILVER"
+        title="Plata"
       />
 
       <TierSection
         tier="Bronze"
         sponsors={bronzeSponsors}
-        title="BRONZE"
+        title="Bronce"
       />
 
       <TierSection
         tier="Colaborador"
         sponsors={collaborators}
-        title="PARTNERS & COLLABORATORS"
+        title="Colaboradores"
       />
     </div>
   );

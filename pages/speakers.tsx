@@ -32,22 +32,22 @@ type Props = {
 
 export default function Speakers({ speakers }: Props) {
   const meta = {
-    title: 'Speakers - ' + SITE_NAME,
+    title: 'Ponentes - ' + SITE_NAME,
     description: META_DESCRIPTION
   };
   return (
     <Page meta={meta}>
       <Layout>
         <PageHero
-          title="Speakers"
-          description="Quién sube al escenario en el DevFest Santiago 2026. Pulsa en cada speaker para ver su bio y sus charlas."
+          title="Ponentes"
+          description="Quién sube al escenario en el DevFest Santiago 2026. Conoce a cada ponente y descubre sus charlas."
         >
           <LinkButton href="/agenda" variant="secondary">
             Ver agenda
           </LinkButton>
         </PageHero>
 
-        <div className="rounded-t-[40px] bg-black/20 pt-4 pb-16 md:pb-24">
+        <div className="bg-white">
           <SpeakersGrid speakers={speakers} />
         </div>
       </Layout>

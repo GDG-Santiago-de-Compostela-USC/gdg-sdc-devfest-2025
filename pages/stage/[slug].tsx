@@ -15,6 +15,7 @@
  */
 
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { HMSRoomProvider } from '@100mslive/react-sdk';
 
 import Page from '@components/page';
 import StageContainer from '@components/stage-container';
@@ -37,7 +38,9 @@ export default function StagePage({ stage, allStages }: Props) {
   return (
     <Page meta={meta} fullViewport>
       <Layout isLive={stage.isLive}>
-        <StageContainer stage={stage} allStages={allStages} />
+        <HMSRoomProvider>
+          <StageContainer stage={stage} allStages={allStages} />
+        </HMSRoomProvider>
       </Layout>
     </Page>
   );

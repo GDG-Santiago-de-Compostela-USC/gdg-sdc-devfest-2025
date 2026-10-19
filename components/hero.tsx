@@ -1,76 +1,56 @@
-/**
- * Copyright 2020 Vercel Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-import cn from 'classnames';
-import styleUtils from './utils.module.css';
-import styles from './hero.module.css';
-import { BRAND_NAME, DATE, SHORT_DATE, SITE_DESCRIPTION, SITE_NAME } from '@lib/constants';
-import Logo from './logo';
+import Link from 'next/link';
+import { DATE, REGISTRATION_URL, SITE_DESCRIPTION } from '@lib/constants';
 import IconLogo from './icons/icon-logo';
-import { GradientBackground } from './GradientBackground';
+import Magnet from './react-bits/Magnet';
+import styles from './hero.module.css';
 
 export default function Hero() {
   return (
-    <div>
-      <div className={cn(styles.wrapper)}>
-        <div className={cn(styleUtils.appear,
-          styleUtils['appear-second'],
-          styles.logo)}>
-          <IconLogo />
-        </div>
-        <h1 className={cn(styleUtils.appear, styleUtils['appear-third'], /*styles.rainbow_text,*/ styles.hero)}>
-
-          {/*<br className={styleUtils['show-on-desktop']} />*/}
-          {SITE_NAME}
-        </h1>
-        <h2
-          className={cn(
-            styleUtils.appear,
-            styleUtils['appear-third'],
-            styles.description
-          )}
-        >
-          {SITE_DESCRIPTION}
-        </h2>
-        <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.info)}>
-          <p className='block md:hidden text-center'>{SHORT_DATE}</p>
-          <p className='hidden md:block text-center'>{DATE}</p>
-        </div>
-        <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.location)}>
-          <p className='text-center px-8 normal-case'>
-            <a className={styles.location_link} href='https://maps.app.goo.gl/GFdS8heX79PLecbj6' target='_blank' rel='noopener noreferrer'>
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-              Escuela Técnica Superior de Ingeniería, USC
-            </a>
-          </p>
-        </div>
-        <div className={cn(styleUtils.appear, styleUtils['appear-fifth'], styles.button_container)}>
-          <a className={styles.button + " px-12"} href='https://gdg.community.dev/events/details/google-gdg-santiago-de-compostela-presents-devfest-santiago-de-compostela-2026/' target='_blank' rel='noopener noreferrer'>
-            Reserva ya tu entrada
+    <section className={styles.hero} aria-labelledby="event-title">
+      <div className={styles.content}>
+        <h1 id="event-title">DevFest Santiago de Compostela 2026</h1>
+        <p className={styles.description}>{SITE_DESCRIPTION}</p>
+        <div className={styles.details}>
+          <p>{DATE}</p>
+          <a
+            href="https://maps.app.goo.gl/GFdS8heX79PLecbj6"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Escuela Técnica Superior de Ingeniería, USC
           </a>
         </div>
+        <div className={styles.actions}>
+          <a
+            className={styles.primary}
+            href={REGISTRATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Reservar entrada gratuita
+          </a>
+          <Link className={styles.secondary} href="/agenda">
+            Ver agenda
+          </Link>
+        </div>
+        <p className={styles.note}>Entrada gratuita con inscripción previa.</p>
       </div>
-      <GradientBackground
-        variant="large"
-        className="fixed top-20 opacity-40 dark:opacity-60"
-      />
-      <GradientBackground
-        variant="small"
-        className="fixed bottom-0 opacity-30 dark:opacity-10"
-      />
-    </div>
+      <figure className={styles.visual}>
+        <Magnet
+          wrapperClassName={styles.magnet}
+          innerClassName={styles.symbol}
+          padding={40}
+          magnetStrength={8}
+          maxOffset={18}
+          tilt={5}
+          scale={1.02}
+        >
+          <IconLogo aria-hidden="true" />
+        </Magnet>
+        <figcaption>
+          Google Developer Groups<span>Santiago de Compostela</span>
+        </figcaption>
+      </figure>
+    </section>
   );
 }

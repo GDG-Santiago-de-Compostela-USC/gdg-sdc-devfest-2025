@@ -61,7 +61,7 @@ export default function Team({ teamMembers }: Props) {
           </LinkButton>
         </PageHero>
 
-        <div className="rounded-t-[40px] bg-black/20 pt-4 pb-16 md:pb-24">
+        <div className="bg-white">
           <TeamGrid teamMembers={teamMembers} />
         </div>
       </Layout>

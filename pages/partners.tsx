@@ -39,7 +39,7 @@ const REAL_SPONSORS: Sponsor[] = [
     links: [],
     discord: '',
     tier: 'Silver',
-    cardImage: { url: 'https://images.unsplash.com/photo-1618477388954-7852f32655ec?w=800&h=600&fit=crop' },
+    cardImage: { url: '/logo-Raiola-Networks-Plata.jpg' },
     logo: { url: '/logo-Raiola-Networks-Plata.jpg' },
     youtubeSlug: ''
   },
@@ -53,7 +53,7 @@ const REAL_SPONSORS: Sponsor[] = [
     links: [],
     discord: '',
     tier: 'Silver',
-    cardImage: { url: 'https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=800&h=600&fit=crop' },
+    cardImage: { url: '/dinahosting.png' },
     logo: { url: '/dinahosting.png' },
     youtubeSlug: ''
   }
@@ -65,20 +65,17 @@ type Props = {
 
 export default function PartnersPage({ sponsors }: Props) {
   const meta = {
-    title: 'Sponsors - ' + SITE_NAME,
+    title: 'Patrocinadores - ' + SITE_NAME,
     description: 'Conoce a las empresas que hacen posible DevFest Santiago 2026. Únete a nosotros y forma parte del futuro de la tecnología.'
   };
 
   const allSponsors = REAL_SPONSORS;
-  console.log('Partners page - CMS sponsors:', sponsors.length);
-  console.log('Partners page - Real sponsors:', REAL_SPONSORS.length);
-  console.log('Partners page - Total sponsors:', allSponsors.length);
 
   return (
     <Page meta={meta}>
       <Layout>
         <PageHero
-          title="Sponsors"
+          title="Patrocinadores"
           description="Las empresas que hacen posible el DevFest Santiago 2026."
         >
           <LinkButton href="mailto:devfest@gdg-sdc.org">
@@ -89,7 +86,7 @@ export default function PartnersPage({ sponsors }: Props) {
           </LinkButton>
         </PageHero>
 
-        <div className="rounded-t-[40px] bg-black/20 pt-4 pb-16 md:pb-24">
+        <div className="bg-white">
           <SponsorsGrid sponsors={allSponsors} />
         </div>
       </Layout>

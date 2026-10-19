@@ -1,0 +1,406 @@
+.home {
+  color: var(--ink);
+  background: var(--surface);
+  width: 100%;
+}
+
+.section {
+  width: min(100%, 1244px);
+  margin-inline: auto;
+  padding: 80px 32px;
+}
+
+.sectionHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.home h2 {
+  color: var(--ink);
+  margin: 0 0 12px;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.home p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  flex-shrink: 0;
+  color: var(--brand);
+  font-size: 16px;
+  font-weight: 500;
+  text-underline-offset: 4px;
+}
+
+.textLink:hover {
+  text-decoration: underline;
+  color: var(--brand-dark);
+}
+
+.talks,
+.speakers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.talks {
+  border-top: 1px solid var(--line);
+}
+
+.talks li {
+  border-bottom: 1px solid var(--line);
+}
+
+.talk {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 28px 0;
+  color: var(--ink);
+}
+
+.talk h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  max-width: 40ch;
+}
+
+.talk p {
+  font-size: 15px;
+}
+
+.sessionLink {
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 16px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.sessionLink svg {
+  width: 20px;
+  height: 20px;
+}
+
+.talk:hover h3,
+.speaker:hover h3 {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.speakersSection {
+  background: var(--soft);
+}
+
+.speakers {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.speaker {
+  display: block;
+  color: var(--ink);
+}
+
+.portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.05;
+  overflow: hidden;
+  background: var(--line);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.portraitImage {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.speaker h3 {
+  margin: 0 0 8px;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.speaker p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.venue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 52px;
+  border-radius: 24px;
+  background: #e8f0fe;
+}
+
+.venue h2 {
+  margin-bottom: 24px;
+}
+
+.venue p {
+  font-size: 20px;
+  color: var(--ink);
+}
+
+.venue .university {
+  margin-top: 4px;
+  color: #42526c;
+  font-size: 16px;
+}
+
+.mapLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid var(--brand);
+  border-radius: 24px;
+  color: var(--brand-dark);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mapLink:hover {
+  background: #d2e3fc;
+}
+
+.sponsorsSection {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.sponsorsInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 44px 32px;
+  max-width: 1244px;
+  margin-inline: auto;
+}
+
+.sponsorsInner h2 {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.sponsorLogos {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+}
+
+.sponsorLogos a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+}
+
+.sponsorLogo {
+  width: 200px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.faq {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 80px;
+}
+
+.questions details {
+  border-bottom: 1px solid var(--line);
+}
+
+.questions details:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.questions summary {
+  padding: 22px 0;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.questions summary::marker {
+  color: var(--brand);
+}
+
+.questions p {
+  padding: 0 0 24px;
+  font-size: 16px;
+}
+
+.questions p a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.home a:focus-visible,
+.questions summary:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+.empty {
+  padding-block: 32px;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 899px) {
+  .speakers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 24px;
+  }
+
+  .venue {
+    padding: 36px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .sponsorLogos {
+    gap: 24px;
+  }
+
+  .sponsorLogo {
+    width: 160px;
+  }
+
+  .faq {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 599px) {
+  .section {
+    padding: 48px 24px;
+  }
+
+  .sectionHeading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .home h2 {
+    font-size: 28px;
+  }
+
+  .home p {
+    font-size: 16px;
+  }
+
+  .talk {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px 0;
+  }
+
+  .talk h3 {
+    font-size: 21px;
+  }
+
+  .talk p {
+    font-size: 14px;
+  }
+
+  .sessionLink {
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .speakers {
+    gap: 28px 16px;
+  }
+
+  .portrait {
+    margin-bottom: 14px;
+  }
+
+  .speaker h3 {
+    font-size: 18px;
+  }
+
+  .speaker p {
+    font-size: 13px;
+  }
+
+  .venue {
+    padding: 28px 24px;
+    border-radius: 16px;
+  }
+
+  .venue p {
+    font-size: 18px;
+  }
+
+  .venue .university {
+    font-size: 15px;
+  }
+
+  .sponsorsInner {
+    padding: 36px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .sponsorLogos {
+    width: 100%;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .sponsorLogos a {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .sponsorLogo {
+    max-width: 100%;
+    height: 80px;
+  }
+}

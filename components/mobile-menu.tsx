@@ -14,103 +14,149 @@
  * limitations under the License.
  */
 
-import { useRef } from 'react';
+import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import cn from 'classnames';
-import { NAVIGATION } from '@lib/constants';
-import { useOverlayTriggerState } from '@react-stately/overlays';
-import { useOverlay, usePreventScroll, useModal, OverlayContainer } from '@react-aria/overlays';
-import { useDialog } from '@react-aria/dialog';
-import { FocusScope } from '@react-aria/focus';
-import { useButton } from '@react-aria/button';
+import { NAVIGATION, REGISTRATION_URL } from '@lib/constants';
+import { usePreventScroll, OverlayContainer } from '@react-aria/overlays';
 import styles from './mobile-menu.module.css';
+import PreviousEditions from './previous-editions';
 
-function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof useDialog>[0]) {
+type ModalDialogProps = {
+  id: string;
+  onClose: () => void;
+};
+
+function ModalDialog({ id, onClose }: ModalDialogProps) {
   const router = useRouter();
   const activeRoute = router.asPath;
+  const ref = useRef<HTMLDialogElement | null>(null);
 
-  const ref = useRef<HTMLElement | null>(null);
-  const { modalProps } = useModal();
-  const { overlayProps } = useOverlay(props, ref);
-  const { dialogProps } = useDialog(props, ref);
+  useEffect(() => {
+    const dialog = ref.current;
+    dialog?.showModal();
+    return () => dialog?.close();
+  }, []);
 
   usePreventScroll();
+  const requestClose = () => {
+    ref.current?.close();
+    onClose();
+  };
 
   return (
-    <div className={styles['nav-overlay']}>
-      <FocusScope contain restoreFocus autoFocus>
-        <nav className={styles.nav} {...overlayProps} {...dialogProps} {...modalProps} ref={ref}>
-          {NAVIGATION.map(({ name, route }) => (
-            <Link key={name} href={route} className={cn(styles['nav-item'], {
-                  [styles['nav-active']]: activeRoute.startsWith(route)
-                })}>
-                {name}
-            </Link>
-          ))}
-        </nav>
-      </FocusScope>
-    </div>
+    <dialog
+      className={styles['nav-overlay']}
+      aria-label="Menú principal"
+      onCancel={event => {
+        event.preventDefault();
+        requestClose();
+      }}
+      id={id}
+      ref={ref}
+    >
+      <button
+        type="button"
+        className={cn(styles.button, styles['close-button'])}
+        aria-label="Cerrar menú"
+        onClick={requestClose}
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          className={styles.icon}
+        >
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <nav className={styles.nav} aria-label="Navegación principal">
+        <Link
+          href="/"
+          className={cn(styles['nav-item'], styles['current-edition'], {
+            [styles['nav-active']]: activeRoute === '/'
+          })}
+          aria-current={activeRoute === '/' ? 'page' : undefined}
+          onClick={requestClose}
+        >
+          DevFest 2026
+        </Link>
+        {NAVIGATION.map(({ name, route }) => (
+          <Link
+            key={name}
+            href={route}
+            className={cn(styles['nav-item'], {
+              [styles['nav-active']]: activeRoute.startsWith(route)
+            })}
+            aria-current={activeRoute.startsWith(route) ? 'page' : undefined}
+            onClick={requestClose}
+          >
+            {name}
+          </Link>
+        ))}
+        <PreviousEditions mobile onNavigate={requestClose} />
+        <a
+          className={styles.registration}
+          href={REGISTRATION_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={requestClose}
+        >
+          Reserva tu entrada
+        </a>
+      </nav>
+    </dialog>
   );
 }
 
-export default function Overlay() {
-  const state = useOverlayTriggerState({});
-  const ref = useRef<HTMLButtonElement | null>(null);
-  const { buttonProps } = useButton(
-    {
-      onPress: () => (state.isOpen ? state.close() : state.open())
-    },
-    ref
-  );
+export default function MobileMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+  const close = useCallback(() => setIsOpen(false), []);
+  const dialogId = useId();
+
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 1120px)');
+    const closeOnDesktop = () => {
+      if (desktop.matches) close();
+    };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, [close]);
 
   return (
     <>
       <button
-        aria-label="Mobile Menu"
+        onClick={() => setIsOpen(true)}
+        aria-label="Abrir menú"
+        aria-haspopup="dialog"
+        aria-expanded={isOpen}
+        aria-controls={isOpen ? dialogId : undefined}
         type="button"
         className={styles.button}
-        {...buttonProps}
-        ref={ref}
       >
-        {state.isOpen ? (
-          <svg
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            shapeRendering="geometricPrecision"
-            className={styles.icon}
-          >
-            <path d="M18 6L6 18" />
-            <path d="M6 6l12 12" />
-          </svg>
-        ) : (
-          <svg
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            shapeRendering="geometricPrecision"
-            className={styles.icon}
-          >
-            <path d="M3 12h18" />
-            <path d="M3 6h18" />
-            <path d="M3 18h18" />
-          </svg>
-        )}
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          fill="none"
+          className={styles.icon}
+        >
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
       </button>
-      {state.isOpen && (
+      {isOpen && (
         <OverlayContainer>
-          <ModalDialog isOpen onClose={(...props) => state.close(...props)} />
+          <ModalDialog id={dialogId} onClose={close} />
         </OverlayContainer>
       )}
     </>

@@ -1,7 +1,5 @@
 import classNames from 'classnames';
-import { useEffect } from 'react';
 import styles from './GradientBackground.module.css';
-import cn from 'classnames';
 
 export function GradientBackground({ variant, className }: { variant: 'large' | 'small'; className?: string }) {
     const classes = classNames(
@@ -12,5 +10,5 @@ export function GradientBackground({ variant, className }: { variant: 'large' | 
         className
     );
 
-    return <div className={cn(classes, styles.unblur, styles.rainbox_bg)} />;
+    return <div className={classes} aria-hidden="true" />;
 }

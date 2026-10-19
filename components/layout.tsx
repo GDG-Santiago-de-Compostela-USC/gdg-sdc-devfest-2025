@@ -18,19 +18,13 @@ import Link from 'next/link';
 import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { SkipNavContent } from '@reach/skip-nav';
-import { NAVIGATION } from '@lib/constants';
+import { NAVIGATION, REGISTRATION_URL } from '@lib/constants';
 import styles from './layout.module.css';
 import MobileMenu from './mobile-menu';
 import Footer from './footer';
 import React from 'react';
-import DemoButton from './hms/demo-cta';
-import RoomCta from './hms/demo-cta/room-cta';
-import { hmsConfig } from './hms/config';
-import ViewSource from './view-source';
-import { GradientBackground } from './GradientBackground';
-import IconLogo from './icons/icon-logo';
-import HmsLogo from './icons/icon-hms';
 import Logo from './logo';
+import PreviousEditions from './previous-editions';
 
 type Props = {
   children: React.ReactNode;
@@ -40,16 +34,9 @@ type Props = {
   isLive?: boolean;
 };
 
-export default function Layout({
-  children,
-  className,
-  hideNav,
-  layoutStyles,
-  isLive = false
-}: Props) {
+export default function Layout({ children, className, hideNav, layoutStyles }: Props) {
   const router = useRouter();
   const activeRoute = router.asPath;
-  const disableCta = ['/schedule', '/speakers', '/expo', '/jobs'];
   return (
     <>
       <div className={styles.background}>
@@ -58,15 +45,24 @@ export default function Layout({
             <div className={styles['header-logos']}>
               <MobileMenu key={router.asPath} />
               <Link href="/" className={styles.logo}>
-                {/* eslint-disable-next-line */}
-                  <Logo />
+                <Logo />
               </Link>
             </div>
-            <div className={styles.tabs}>
+            <nav className={styles.tabs} aria-label="Navegación principal">
+              <Link
+                href="/"
+                aria-current={activeRoute === '/' ? 'page' : undefined}
+                className={cn(styles.tab, styles['current-edition'], {
+                  [styles['current-edition-active']]: activeRoute === '/'
+                })}
+              >
+                DevFest 2026
+              </Link>
               {NAVIGATION.map(({ name, route }) => (
                 <a
                   key={name}
                   href={route}
+                  aria-current={activeRoute.startsWith(route) ? 'page' : undefined}
                   className={cn(styles.tab, {
                     [styles['tab-active']]: activeRoute.startsWith(route)
                   })}
@@ -74,21 +70,18 @@ export default function Layout({
                   {name}
                 </a>
               ))}
-            </div>
-
-            {/*
-            (hmsConfig.hmsIntegration && isLive && !disableCta.includes(activeRoute)) ||
-            activeRoute === '/' ? (
-              <div className={cn(styles['header-right'])}>
-                {activeRoute === '/' ? <DemoButton /> : <RoomCta />}
-              </div>
-            ) : (
-              <div />
-            )
-            */}
+              <PreviousEditions key={router.asPath} />
+              <a
+                href={REGISTRATION_URL}
+                className={styles.registration}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Reserva tu entrada
+              </a>
+            </nav>
           </header>
         )}
-        {/*<ViewSource />*/}
         <div className={styles.page}>
           <main className={styles.main} style={layoutStyles}>
             <SkipNavContent />

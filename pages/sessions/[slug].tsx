@@ -28,10 +28,10 @@ type Props = {
   talk: Talk;
 };
 
-export default function SpeakerPage({ talk }: Props) {
+export default function SessionPage({ talk }: Props) {
   const meta = {
-    title: 'Sesión - ' + SITE_NAME,
-    description: META_DESCRIPTION
+    title: talk.title + ' - ' + SITE_NAME,
+    description: talk.description.replace(/\s+/g, ' ').trim().slice(0, 160) || META_DESCRIPTION
   };
 
   return (
@@ -49,18 +49,19 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   if (!talk) {
     return {
-      notFound: true
+      notFound: true,
+      revalidate: 60
     };
   }
 
   return {
     props: {
-      // Sessionize has no schedule yet: start/end stay empty until it is published
       talk: {
         title: talk.title,
         description: talk.description,
-        start: '',
-        end: '',
+        start: talk.start || '',
+        end: talk.end || '',
+        ...(talk.room ? { stage: { name: talk.room } } : {}),
         slug: talk.slug,
         speaker: talk.speakers as unknown as Speaker[]
       }

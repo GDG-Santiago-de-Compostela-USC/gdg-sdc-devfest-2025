@@ -15,6 +15,7 @@
  */
 
 import React from 'react';
+import styles from './page-hero.module.css';
 
 type Props = {
   title: string;
@@ -25,18 +26,10 @@ type Props = {
 // Cabecera común de las páginas interiores: título, entradilla y acciones
 export default function PageHero({ title, description, children }: Props) {
   return (
-    <header className="px-6 pt-12 pb-10 text-center md:pt-16 md:pb-14">
-      <h1 className="text-4xl font-black uppercase tracking-tight text-white md:text-6xl">
-        {title}
-      </h1>
-      {description && (
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-gray-300 md:text-lg">
-          {description}
-        </p>
-      )}
-      {children && (
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 md:gap-4">{children}</div>
-      )}
+    <header className={styles.hero}>
+      <h1 className={styles.title}>{title}</h1>
+      {description && <p className={styles.description}>{description}</p>}
+      {children && <div className={styles.actions}>{children}</div>}
     </header>
   );
 }

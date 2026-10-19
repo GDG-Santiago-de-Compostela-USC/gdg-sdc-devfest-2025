@@ -16,29 +16,17 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import cn from 'classnames';
-import GithubIcon from '@components/icons/icon-github';
-import { Speaker, Talk, TeamMember } from '@lib/types';
+import { Talk } from '@lib/types';
+import { EVENT_TIME_ZONE } from '@lib/constants';
+import { formatSessionSchedule } from '@lib/sessionize';
 import styles from './talk-section.module.css';
-import { LinkedInIcon, MailIcon, SpeakerIcon } from '@100mslive/react-icons';
-import IconAvatar from './icons/icon-avatar';
-import IconCheck from './icons/icon-check';
-import IconTwitter from './icons/icon-twitter';
-import React from 'react';
 
 type Props = {
   talk: Talk;
 };
 
 export default function TalkSection({ talk }: Props) {
-  const dayFormatted = React.useMemo(() => {
-    if (!talk.start) return '';
-    const time = new Date(talk.start);
-    const dateInLowercase =  time.toLocaleDateString(new Intl.Locale('es-ES'), {dateStyle: 'full'});
-    const dateInSentenceCase = dateInLowercase.charAt(0).toUpperCase() + dateInLowercase.slice(1);
-    return dateInSentenceCase;
-  }
-  , [talk.start]);
+  const schedule = talk.start ? formatSessionSchedule(talk.start, talk.end) : null;
 
   return (
     <>
@@ -59,34 +47,28 @@ export default function TalkSection({ talk }: Props) {
         Agenda
       </Link>
       <div key={talk.title} className={styles.container}>
-        {/*
-        <div style={{ minWidth: '300px', position: 'relative' }}>
-          <Image
-            alt={teamMember.name}
-            title={teamMember.name}
-            src={teamMember.image.url}
-            className={styles.image}
-            loading="lazy"
-            content='cover'
-            layout='fill'
-          />
-        </div>
-  */}
         <div className={styles['speaker-details']}>
           <div>
             <h1 className={styles.name}>{talk.title}</h1>
-            {talk.start ? (
+            {schedule ? (
               <>
                 <p className={styles.date}>
-                  <span className={styles.company}>{dayFormatted}</span>
+                  <span className={styles.company}>{schedule.day}</span>
                 </p>
                 <p className={styles.hours}>
-                  <span className={styles.company}>{`${new Date(talk.start).toLocaleTimeString(new Intl.Locale('es-ES'), {timeStyle: 'short'})} - ${new Date(talk.end).toLocaleTimeString(new Intl.Locale('es-ES'), {timeStyle: 'short'})}`}</span>
+                  <span className={styles.company}>
+                    {schedule.hours} ({EVENT_TIME_ZONE})
+                  </span>
                 </p>
               </>
             ) : (
               <p className={styles.date}>
                 <span className={styles.company}>Horario por confirmar</span>
+              </p>
+            )}
+            {(schedule || talk.stage?.name) && (
+              <p className={styles.date}>
+                <span className={styles.company}>{talk.stage?.name || 'Sala por confirmar'}</span>
               </p>
             )}
             <h2 className={styles['bio-header']}>Descripción</h2>
@@ -105,9 +87,7 @@ export default function TalkSection({ talk }: Props) {
                     height={48}
                   />
                 </div>
-                <p className={styles.speaker_name} >
-                  {s.name}
-                </p>
+                <p className={styles.speaker_name}>{s.name}</p>
               </Link>
             ))}
           </div>

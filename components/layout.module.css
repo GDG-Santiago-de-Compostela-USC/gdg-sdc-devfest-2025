@@ -1,124 +1,119 @@
-/**
- * Copyright 2020 Vercel Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 .background {
-  /*background: #000;*/
-  color: #fff;
+  color: var(--ink);
+  background: var(--surface);
   min-height: 100vh;
-  min-height: var(--100vh);
   display: flex;
   flex-direction: column;
 }
-
-.background.no-scroll {
-  height: 100vh;
-  height: var(--100vh);
-  overflow: hidden;
-}
-
 .page {
   display: flex;
   flex-direction: column;
   width: 100%;
   flex: 1;
 }
-
 .main {
   flex: 1;
   display: flex;
 }
-
 .full {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 0;
 }
-
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--sidebar);
-  border-bottom: 1px solid var(--accents-7);
-  height: var(--header-height);
-  z-index: 2;
+  min-height: 88px;
+  padding: 0 max(24px, calc((100vw - 1280px) / 2));
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  z-index: 5;
+  gap: 24px;
 }
-
 .header-logos {
   display: flex;
   align-items: center;
-  margin: var(--space-2x) var(--space-4x);
+  flex: 0 1 auto;
+  min-width: 0;
 }
-
-.header-right {
-  margin: var(--space-2x) var(--space-4x);
-  margin-right: 5rem;
-  display: none;
-}
-
-@media screen and (min-width: 770px) {
-  .header-right {
-    display: initial;
-  }
-}
-
-.tabs {
-  height: 100%;
-  display: none;
-}
-
-@media screen and (min-width: 1032px) {
-  .tabs {
-    display: initial;
-  }
-
-  .tabs > a:nth-child(2),
-  .tabs > a:nth-child(3),
-  .tabs > a:nth-child(4) {
-    display: inline-flex;
-  }
-}
-
-.tab {
-  text-transform: uppercase;
-  padding: var(--space-4x);
-  font-size: 14px;
-  color: var(--secondary-color);
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.tab:hover,
-.tab:focus,
-.tab:active {
-  color: #fff;
-}
-
-.tab-active {
-  color: #fff;
-  background: linear-gradient(90deg, var(--brand), var(--brand)) left bottom transparent no-repeat;
-  background-size: 100% 1px;
-}
-
 .logo {
   display: flex;
-  width: auto;
-  flex-grow: 1;
+  min-width: 0;
+}
+.tabs {
+  display: none;
+  align-self: stretch;
+  align-items: center;
+  gap: 22px;
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+  height: 100%;
+  border-bottom: 2px solid transparent;
+  padding-top: 2px;
+}
+.tab:hover,
+.tab-active {
+  color: var(--brand-dark);
+  border-bottom-color: var(--brand);
+}
+.current-edition,
+.current-edition:hover,
+.current-edition-active {
+  min-height: 40px;
+  height: auto;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: #e8f0fe;
+  color: var(--brand-dark);
+  font-weight: 700;
+}
+.current-edition:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
+.registration {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 22px;
+  border-radius: 24px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.registration:hover {
+  background: var(--brand-dark);
+}
+.tab:focus-visible,
+.logo:focus-visible,
+.registration:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 4px;
+}
+@media (min-width: 1120px) {
+  .tabs {
+    display: flex;
+  }
+}
+@media (max-width: 1119px) {
+  .header {
+    min-height: 80px;
+  }
+}
+@media (max-width: 399px) {
+  .header {
+    padding-inline: 12px;
+  }
 }

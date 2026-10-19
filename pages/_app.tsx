@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { SSRProvider, OverlayProvider } from 'react-aria';
+import { OverlayProvider } from 'react-aria';
 import '@styles/global.css';
 import '@styles/nprogress.css';
 import '@styles/chrome-bug.css';
@@ -22,9 +22,7 @@ import { AppProps } from 'next/app';
 import NProgress from '@components/nprogress';
 import ResizeHandler from '@components/resize-handler';
 import { useEffect } from 'react';
-import { HMSRoomProvider } from '@100mslive/react-sdk';
 import localFont from 'next/font/local';
-import Script from 'next/script';
 import { GoogleAnalytics } from 'nextjs-google-analytics';
 
 const googleSans = localFont({
@@ -47,15 +45,11 @@ export default function App({ Component, pageProps }: AppProps) {
     document.body.classList?.remove('loading');
   }, []);
   return (
-    <SSRProvider>
-      <OverlayProvider className={googleSans.className}>
-        <HMSRoomProvider>
-          <GoogleAnalytics trackPageViews />
-          <Component {...pageProps} />
-          <ResizeHandler />
-          <NProgress />
-        </HMSRoomProvider>
-      </OverlayProvider>
-    </SSRProvider>
+    <OverlayProvider className={googleSans.className}>
+      <GoogleAnalytics trackPageViews />
+      <Component {...pageProps} />
+      <ResizeHandler />
+      <NProgress />
+    </OverlayProvider>
   );
 }

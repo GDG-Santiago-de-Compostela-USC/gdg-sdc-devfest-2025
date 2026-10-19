@@ -14,14 +14,22 @@
  * limitations under the License.
  */
 
+import type { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { SkipNavContent } from '@reach/skip-nav';
 
 import Page from '@components/page';
 import ConfContent from '@components/index';
 import { META_DESCRIPTION, SITE_NAME } from '@lib/constants';
+import { getSessionizeData } from '@lib/sessionize';
+import type { SessionizeSpeaker, SessionizeTalk } from '@lib/sessionize';
 
-export default function Conf() {
+type Props = {
+  speakers: SessionizeSpeaker[];
+  talks: SessionizeTalk[];
+};
+
+export default function Conf({ speakers, talks }: Props) {
   const { query } = useRouter();
   const meta = {
     title: SITE_NAME,
@@ -39,9 +47,23 @@ export default function Conf() {
     <Page meta={meta} fullViewport>
       <SkipNavContent />
       <ConfContent
+        speakers={speakers}
+        talks={talks}
         defaultUserData={defaultUserData}
         defaultPageState={query.ticketNumber ? 'ticket' : 'registration'}
       />
     </Page>
   );
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const { speakers, talks } = await getSessionizeData();
+
+  return {
+    props: {
+      speakers: speakers.slice(0, 4),
+      talks: talks.slice(0, 3)
+    },
+    revalidate: 360
+  };
+};
