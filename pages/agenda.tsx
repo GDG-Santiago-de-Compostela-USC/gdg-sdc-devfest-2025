@@ -100,13 +100,6 @@ function Horario({ agenda }: { agenda: AgendaDia[] }) {
         ))}
       </nav>
 
-      <div className="mt-4">
-        <Aviso>
-          <strong className="font-semibold text-white">Horario provisional.</strong> Puede haber cambios hasta el
-          día del evento: esta página se actualiza sola con la agenda más reciente.
-        </Aviso>
-      </div>
-
       {agenda.map(day => (
         <section key={day.date} id={`dia-${day.date}`} className="mt-16 scroll-mt-24 md:mt-20">
           <h2 className="mb-6 text-2xl font-black text-white md:text-3xl">{day.label}</h2>
