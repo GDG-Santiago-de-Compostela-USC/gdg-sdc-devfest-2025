@@ -17,51 +17,102 @@
 import React from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
-import { Stage, Talk } from '@lib/types';
+import Link from 'next/link';
+import { AgendaBloque, AgendaDia, AgendaPonente, AgendaSesion } from '@lib/agenda';
 import styles from './schedule-grid.module.css';
 import Button from './hms/Button';
 
-type ScheduleGridProps = {
-  allStages: Stage[];
-  serviceSessions: Talk[];
+// La rejilla de la agenda de 2025: una columna por sala y cada charla colocada según su hora.
+// Los bloques comunes (apertura, pausas, clausura) van en la columna «General».
+
+type Props = {
+  agenda: AgendaDia[];
 };
 
-function formatTime(date: Date): string {
-  return date.toLocaleTimeString('es-ES', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false
-  });
+type Celda = {
+  key: string;
+  titulo: string;
+  inicio: string;
+  fin: string;
+  sala: string | null;
+  ponentes: AgendaPonente[];
+  general: boolean;
+  sessionize: string | null;
+};
+
+const PIXELS_PER_MINUTE = 3.5;
+
+function minutos(hora: string): number {
+  const [h, m] = hora.split(':').map(Number);
+  return h * 60 + m;
 }
 
+function hora(min: number): string {
+  return `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
+}
 
-// Mobile-specific components
-function MobileTalkCard({ talk }: { talk: Talk }) {
+function deSesion(sesion: AgendaSesion): Celda {
+  return { ...sesion, key: sesion.id, general: false };
+}
+
+function deBloque(bloque: AgendaBloque): Celda {
+  return { ...bloque, key: `${bloque.inicio}-${bloque.titulo}`, ponentes: [], general: true, sessionize: null };
+}
+
+function celdasDelDia(day: AgendaDia) {
+  const general: Celda[] = [];
+  const porSala = new Map<string, Celda[]>();
+  for (const franja of day.franjas) {
+    if ('bloque' in franja) {
+      general.push(deBloque(franja.bloque));
+      continue;
+    }
+    for (const sesion of franja.sesiones) {
+      porSala.set(sesion.sala, [...(porSala.get(sesion.sala) ?? []), deSesion(sesion)]);
+    }
+  }
+  const salas = Array.from(porSala, ([nombre, celdas]) => ({ nombre, celdas }));
+  const todas = [...general, ...salas.flatMap(s => s.celdas)].sort((a, b) => minutos(a.inicio) - minutos(b.inicio));
+  return { general, salas, todas };
+}
+
+function Enlace({ celda, className, children }: { celda: Celda; className: string; children: React.ReactNode }) {
+  return celda.sessionize ? (
+    <Link href={`/sessions/${celda.sessionize}`} className={className}>
+      {children}
+    </Link>
+  ) : (
+    <div className={className}>{children}</div>
+  );
+}
+
+function MobileTalkCard({ celda }: { celda: Celda }) {
   return (
-    <div className={cn(styles.mobileTalkCard, {
-      [styles.mobileServiceSession]: talk.isServiceSession
-    })}>
+    <Enlace
+      celda={celda}
+      className={cn(styles.mobileTalkCard, {
+        [styles.mobileServiceSession]: celda.general
+      })}
+    >
       <div className={styles.mobileTimeHeader}>
         <span className={styles.mobileTime}>
-          {formatTime(new Date(talk.start))} - {formatTime(new Date(talk.end))}
+          {celda.inicio} - {celda.fin}
         </span>
-        {talk.stage && (
-          <span className={styles.mobileStage}>{talk.stage.name}</span>
-        )}
+        {celda.sala && <span className={styles.mobileStage}>{celda.sala}</span>}
       </div>
 
       <div className={styles.mobileTalkContent}>
-        <h3 className={styles.mobileTalkTitle}>{talk.title}</h3>
+        <h3 className={styles.mobileTalkTitle}>{celda.titulo}</h3>
 
-        {talk.speaker && talk.speaker.length > 0 && (
+        {celda.ponentes.length > 0 && (
           <div className={styles.mobileSpeakers}>
-            {talk.speaker.map((speaker, index) => (
-              <div key={index} className={styles.mobileSpeakerItem}>
-                {speaker.image && (
+            {celda.ponentes.map(ponente => (
+              <div key={ponente.nombre} className={styles.mobileSpeakerItem}>
+                {ponente.foto && (
                   <div className={styles.mobileSpeakerAvatar}>
                     <Image
-                      src={speaker.image.url}
-                      alt={speaker.name}
+                      src={ponente.foto}
+                      alt={ponente.nombre}
                       width={40}
                       height={40}
                       className={styles.mobileSpeakerImage}
@@ -69,387 +120,159 @@ function MobileTalkCard({ talk }: { talk: Talk }) {
                   </div>
                 )}
                 <div className={styles.mobileSpeakerInfo}>
-                  <span className={styles.mobileSpeakerName}>{speaker.name}</span>
-                  {speaker.title && (
-                    <span className={styles.mobileSpeakerTitle}>{speaker.title}</span>
-                  )}
+                  <span className={styles.mobileSpeakerName}>{ponente.nombre}</span>
+                  {ponente.cargo && <span className={styles.mobileSpeakerTitle}>{ponente.cargo}</span>}
                 </div>
               </div>
             ))}
           </div>
         )}
       </div>
-    </div>
+    </Enlace>
   );
 }
 
-function MobileSchedule({ allStages, serviceSessions, currentDay }: {
-  allStages: Stage[];
-  serviceSessions: Talk[];
-  currentDay: Date;
-}) {
-  // Get all talks for current day and sort by time
-  const allTalksToday = React.useMemo(() => {
-    const talks: Talk[] = [];
-
-    // Add service sessions
-    const dayServiceSessions = serviceSessions.filter(session => {
-      const sessionDate = new Date(session.start);
-      return sessionDate.toDateString() === currentDay.toDateString();
-    });
-    talks.push(...dayServiceSessions);
-
-    // Add regular talks
-    allStages.forEach(stage => {
-      const stageTalks = stage.schedule.filter(talk => {
-        const talkDate = new Date(talk.start);
-        return talkDate.toDateString() === currentDay.toDateString();
-      }).map(talk => ({ ...talk, stage: { name: stage.name } }));
-      talks.push(...stageTalks);
-    });
-
-    // Sort by start time
-    return talks.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
-  }, [allStages, serviceSessions, currentDay]);
-
+function TalkCell({ celda, desde }: { celda: Celda; desde: number }) {
   return (
-    <div className={styles.mobileSchedule}>
-      {allTalksToday.map((talk, index) => (
-        <MobileTalkCard key={`${talk.slug}-${index}`} talk={talk} />
-      ))}
+    <div
+      className={styles.timelineSession}
+      style={{
+        top: `${(minutos(celda.inicio) - desde) * PIXELS_PER_MINUTE}px`,
+        height: `${(minutos(celda.fin) - minutos(celda.inicio)) * PIXELS_PER_MINUTE}px`
+      }}
+    >
+      <Enlace celda={celda} className={cn(styles.talkCell, { [styles.serviceSession]: celda.general })}>
+        <div className={styles.talkContent}>
+          <h4 className={styles.talkTitle}>{celda.titulo}</h4>
+          {celda.ponentes.length > 0 && (
+            <div className={styles.speakers}>
+              {celda.ponentes.map(ponente => (
+                <div key={ponente.nombre} className={styles.speakerItem}>
+                  {ponente.foto && (
+                    <div className={styles.speakerAvatar}>
+                      <Image
+                        src={ponente.foto}
+                        alt={ponente.nombre}
+                        width={24}
+                        height={24}
+                        className={styles.speakerImage}
+                      />
+                    </div>
+                  )}
+                  <span className={styles.speakerName}>{ponente.nombre}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          {/* En un bloque de un cuarto de hora no cabe más que el título */}
+          {minutos(celda.fin) - minutos(celda.inicio) > 20 && (
+            <div className={styles.talkTime}>
+              {celda.inicio} - {celda.fin}
+              {celda.general && celda.sala && ` · ${celda.sala}`}
+            </div>
+          )}
+        </div>
+      </Enlace>
     </div>
   );
 }
 
+export default function ScheduleGrid({ agenda }: Props) {
+  const [currentDate, setCurrentDate] = React.useState(agenda[0].date);
+  const currentDay = agenda.find(day => day.date === currentDate) ?? agenda[0];
+  const { general, salas, todas } = React.useMemo(() => celdasDelDia(currentDay), [currentDay]);
 
-export default function ScheduleGrid({ allStages, serviceSessions }: ScheduleGridProps) {
-  // Mobile detection
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Get all unique days
-  const allDays = React.useMemo(() => {
-    if (!allStages || allStages.length === 0) return [];
-
-    const days = allStages.reduce((prev: Date[], stage: Stage) => {
-      const stageDays = stage.schedule.map(talk => {
-        const time = new Date(talk.start);
-        return new Date(time.getFullYear(), time.getMonth(), time.getDate());
-      });
-      return [...prev, ...stageDays];
-    }, []);
-
-    const uniqueDays = days.reduce((prev: Date[], curr: Date) => {
-      const exists = prev.find(day => day.toDateString() === curr.toDateString());
-      if (!exists) prev.push(curr);
-      return prev;
-    }, []);
-
-    return uniqueDays.sort((a, b) => a.getTime() - b.getTime());
-  }, [allStages]);
-
-  const [currentDay, setCurrentDay] = React.useState<Date | null>(null);
-
-  React.useEffect(() => {
-    if (allDays.length > 0 && !currentDay) {
-      setCurrentDay(allDays[0]);
-    }
-  }, [allDays, currentDay]);
-
-  // Calculate time range and positioning for continuous timeline
-  const timelineConfig = React.useMemo(() => {
-    if (!currentDay || !allStages) return null;
-
-    const allTalks = allStages.reduce((talks: Talk[], stage) => {
-      const dayTalks = stage.schedule.filter(talk => {
-        const talkDate = new Date(talk.start);
-        return talkDate.toDateString() === currentDay.toDateString();
-      });
-      return [...talks, ...dayTalks];
-    }, []);
-
-    const dayServiceSessions = serviceSessions.filter(session => {
-      const sessionDate = new Date(session.start);
-      return sessionDate.toDateString() === currentDay.toDateString();
-    });
-
-    const allSessionsToday = [...allTalks, ...dayServiceSessions];
-    if (allSessionsToday.length === 0) return null;
-
-    // Get earliest and latest times
-    const times = allSessionsToday.map(s => new Date(s.start).getTime());
-    const minSessionTime = Math.min(...times);
-    const maxSessionTime = Math.max(...allSessionsToday.map(s => new Date(s.end).getTime()));
-
-    // Generate hourly markers for the timeline
-    // Start from the hour before the first session
-    const startHour = new Date(minSessionTime);
-    startHour.setMinutes(0, 0, 0);
-
-    // End one hour after the last session
-    const endHour = new Date(maxSessionTime);
-    endHour.setMinutes(0, 0, 0);
-    endHour.setHours(endHour.getHours() + 1);
-
-    // Use startHour as minTime for positioning calculations
-    const minTime = startHour.getTime();
-    const maxTime = endHour.getTime();
-
-    const hourMarkers = [];
-    for (let time = startHour.getTime(); time <= endHour.getTime(); time += 3600000) {
-      hourMarkers.push(new Date(time));
-    }
-
-    const PIXELS_PER_MINUTE = 3.5; // 3.5px per minute for better readability
-    const totalMinutes = (maxTime - minTime) / 60000;
-    const timelineHeight = totalMinutes * PIXELS_PER_MINUTE;
-
-    return {
-      minTime,
-      maxTime,
-      hourMarkers,
-      timelineHeight,
-      pixelsPerMinute: PIXELS_PER_MINUTE,
-      calculatePosition: (time: string) => {
-        const timeMs = new Date(time).getTime();
-        const minutesFromStart = (timeMs - minTime) / 60000;
-        return minutesFromStart * PIXELS_PER_MINUTE;
-      },
-      calculateHeight: (start: string, end: string) => {
-        const duration = (new Date(end).getTime() - new Date(start).getTime()) / 60000;
-        return duration * PIXELS_PER_MINUTE;
-      }
-    };
-  }, [allStages, serviceSessions, currentDay]);
-
-  // Get current day stages and sessions
-  const currentStages = React.useMemo(() => {
-    if (!currentDay || !allStages) return [];
-
-    return allStages.map(stage => ({
-      ...stage,
-      schedule: stage.schedule.filter(talk => {
-        const talkDate = new Date(talk.start);
-        return talkDate.toDateString() === currentDay.toDateString();
-      })
-    })).filter(stage => stage.schedule.length > 0);
-  }, [allStages, currentDay]);
-
-  const currentServiceSessions = React.useMemo(() => {
-    if (!currentDay || !serviceSessions) return [];
-
-    return serviceSessions.filter(session => {
-      const sessionDate = new Date(session.start);
-      return sessionDate.toDateString() === currentDay.toDateString();
-    });
-  }, [serviceSessions, currentDay]);
-
-  if (!currentDay) {
-    return <div className={styles.container}>Loading...</div>;
-  }
+  // De la hora en punto anterior a la primera sesión a la hora siguiente a la última.
+  const desde = todas.length ? Math.floor(minutos(todas[0].inicio) / 60) * 60 : 0;
+  const hasta = todas.length ? (Math.floor(Math.max(...todas.map(c => minutos(c.fin))) / 60) + 1) * 60 : 0;
+  const timelineHeight = (hasta - desde) * PIXELS_PER_MINUTE;
+  const hourMarkers: number[] = [];
+  for (let min = desde; min <= hasta; min += 60) hourMarkers.push(min);
 
   return (
     <div className={styles.container}>
       {/* Day selector */}
       <div className={styles.daySelector}>
-        {allDays.map((day: Date) => (
+        {agenda.map(day => (
           <Button
-            onClick={() => setCurrentDay(day)}
-            key={day.toDateString()}
+            onClick={() => setCurrentDate(day.date)}
+            key={day.date}
             type="button"
             className={cn(styles.dayButton, {
-              [styles.dayButtonActive]: day.toDateString() === currentDay.toDateString()
+              [styles.dayButtonActive]: day.date === currentDay.date
             })}
           >
-            {day.toLocaleDateString('es-ES', {
-              weekday: 'long',
-              day: 'numeric',
-              month: 'short'
-            })}
+            {day.label}
           </Button>
         ))}
       </div>
 
       {/* Mobile layout */}
-      {isMobile ? (
-        <MobileSchedule
-          allStages={currentStages}
-          serviceSessions={currentServiceSessions}
-          currentDay={currentDay}
-        />
-      ) : (
-        /* Desktop continuous timeline layout */
-        <div className={styles.scheduleWrapper}>
-          {!timelineConfig ? (
-            <div>No sessions scheduled for this day</div>
-          ) : (
-            <div className={styles.timelineContainer}>
-              {/* Headers row */}
-              <div className={styles.headersRow}>
-                <div className={styles.timeHeaderCell}></div>
-                {currentServiceSessions.length > 0 && (
-                  <div className={styles.stageHeader}>
-                    <h3 className={styles.stageName}>General</h3>
-                  </div>
-                )}
-                {currentStages.map(stage => (
-                  <div key={stage.name} className={styles.stageHeader}>
-                    <h3 className={styles.stageName}>{stage.name}</h3>
+      <div className={styles.mobileSchedule}>
+        {todas.map(celda => (
+          <MobileTalkCard key={celda.key} celda={celda} />
+        ))}
+      </div>
+
+      {/* Desktop continuous timeline layout */}
+      <div className={styles.scheduleWrapper}>
+        {!todas.length ? (
+          <div>No hay sesiones este día</div>
+        ) : (
+          <div className={styles.timelineContainer}>
+            {/* Headers row */}
+            <div className={styles.headersRow}>
+              <div className={styles.timeHeaderCell}></div>
+              {general.length > 0 && (
+                <div className={styles.stageHeader}>
+                  <h3 className={styles.stageName}>General</h3>
+                </div>
+              )}
+              {salas.map(sala => (
+                <div key={sala.nombre} className={styles.stageHeader}>
+                  <h3 className={styles.stageName}>{sala.nombre}</h3>
+                </div>
+              ))}
+            </div>
+
+            {/* Timeline content area */}
+            <div className={styles.timelineContent}>
+              {/* Time markers column */}
+              <div className={styles.timeMarkersColumn} style={{ height: `${timelineHeight}px` }}>
+                {hourMarkers.map(marker => (
+                  <div
+                    key={marker}
+                    className={styles.timeMarker}
+                    style={{ top: `${(marker - desde) * PIXELS_PER_MINUTE}px` }}
+                  >
+                    <span className={styles.timeLabel}>{hora(marker)}</span>
+                    <div className={styles.timeMarkerLine} />
                   </div>
                 ))}
               </div>
 
-              {/* Timeline content area */}
-              <div className={styles.timelineContent}>
-                {/* Time markers column */}
-                <div
-                  className={styles.timeMarkersColumn}
-                  style={{ height: `${timelineConfig.timelineHeight}px` }}
-                >
-                  {timelineConfig.hourMarkers.map((marker, index) => {
-                    const position = timelineConfig.calculatePosition(marker.toISOString());
-                    return (
-                      <div
-                        key={index}
-                        className={styles.timeMarker}
-                        style={{ top: `${position}px` }}
-                      >
-                        <span className={styles.timeLabel}>
-                          {formatTime(marker)}
-                        </span>
-                        <div className={styles.timeMarkerLine} />
-                      </div>
-                    );
-                  })}
-                </div>
+              {/* Tracks container */}
+              <div className={styles.tracksContainer}>
+                {general.length > 0 && (
+                  <div className={styles.track} style={{ height: `${timelineHeight}px` }}>
+                    {general.map(celda => (
+                      <TalkCell key={celda.key} celda={celda} desde={desde} />
+                    ))}
+                  </div>
+                )}
 
-                {/* Tracks container */}
-                <div className={styles.tracksContainer}>
-                  {/* Service sessions track */}
-                  {currentServiceSessions.length > 0 && (
-                    <div
-                      className={styles.track}
-                      style={{ height: `${timelineConfig.timelineHeight}px` }}
-                    >
-                      {currentServiceSessions.map((session) => {
-                        const top = timelineConfig.calculatePosition(session.start);
-                        const height = timelineConfig.calculateHeight(session.start, session.end);
-
-                        return (
-                          <div
-                            key={`service-${session.slug || session.title}`}
-                            className={styles.timelineSession}
-                            style={{
-                              top: `${top}px`,
-                              height: `${height}px`
-                            }}
-                          >
-                            <div className={cn(styles.talkCell, styles.serviceSession)}>
-                              <div className={styles.talkContent}>
-                                <h4 className={styles.talkTitle}>{session.title}</h4>
-                                {session.speaker && session.speaker.length > 0 && (
-                                  <div className={styles.speakers}>
-                                    {session.speaker.map((speaker, index) => (
-                                      <div key={index} className={styles.speakerItem}>
-                                        {speaker.image && (
-                                          <div className={styles.speakerAvatar}>
-                                            <Image
-                                              src={speaker.image.url}
-                                              alt={speaker.name}
-                                              width={24}
-                                              height={24}
-                                              className={styles.speakerImage}
-                                            />
-                                          </div>
-                                        )}
-                                        <span className={styles.speakerName}>
-                                          {speaker.name}
-                                        </span>
-                                      </div>
-                                    ))}
-                                  </div>
-                                )}
-                                <div className={styles.talkTime}>
-                                  {formatTime(new Date(session.start))} - {formatTime(new Date(session.end))}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-
-                  {/* Regular stage tracks */}
-                  {currentStages.map((stage) => (
-                    <div
-                      key={stage.name}
-                      className={styles.track}
-                      style={{ height: `${timelineConfig.timelineHeight}px` }}
-                    >
-                      {stage.schedule.map((talk) => {
-                        const top = timelineConfig.calculatePosition(talk.start);
-                        const height = timelineConfig.calculateHeight(talk.start, talk.end);
-
-                        return (
-                          <div
-                            key={`${stage.name}-${talk.slug || talk.title}`}
-                            className={styles.timelineSession}
-                            style={{
-                              top: `${top}px`,
-                              height: `${height}px`
-                            }}
-                          >
-                            <div className={styles.talkCell}>
-                              <div className={styles.talkContent}>
-                                <h4 className={styles.talkTitle}>{talk.title}</h4>
-                                {talk.speaker && talk.speaker.length > 0 && (
-                                  <div className={styles.speakers}>
-                                    {talk.speaker.map((speaker, index) => (
-                                      <div key={index} className={styles.speakerItem}>
-                                        {speaker.image && (
-                                          <div className={styles.speakerAvatar}>
-                                            <Image
-                                              src={speaker.image.url}
-                                              alt={speaker.name}
-                                              width={24}
-                                              height={24}
-                                              className={styles.speakerImage}
-                                            />
-                                          </div>
-                                        )}
-                                        <span className={styles.speakerName}>
-                                          {speaker.name}
-                                        </span>
-                                      </div>
-                                    ))}
-                                  </div>
-                                )}
-                                <div className={styles.talkTime}>
-                                  {formatTime(new Date(talk.start))} - {formatTime(new Date(talk.end))}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ))}
-                </div>
+                {salas.map(sala => (
+                  <div key={sala.nombre} className={styles.track} style={{ height: `${timelineHeight}px` }}>
+                    {sala.celdas.map(celda => (
+                      <TalkCell key={celda.key} celda={celda} desde={desde} />
+                    ))}
+                  </div>
+                ))}
               </div>
             </div>
-          )}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -48,7 +48,6 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-transform: capitalize;
 }
 
 .dayButton:hover {
@@ -57,7 +56,8 @@
   transform: translateY(-2px);
 }
 
-.dayButtonActive {
+.dayButtonActive,
+.dayButtonActive:hover {
   background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   color: white;
   border-color: rgba(59, 130, 246, 0.3);
@@ -185,6 +185,8 @@
 
 /* Talk cells */
 .talkCell {
+  color: inherit;
+  text-decoration: none;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -312,6 +314,9 @@
 }
 
 .mobileTalkCard {
+  display: block;
+  color: inherit;
+  text-decoration: none;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -447,18 +452,14 @@
     font-size: 14px;
   }
 
-  /* Hide desktop layout on mobile - mobile layout is handled by JavaScript */
+  /* Hide desktop layout on mobile */
   .scheduleWrapper {
     display: none;
   }
 }
 
-/* Loading state */
-.container:has-text("Loading") {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 16px;
+@media (min-width: 769px) {
+  .mobileSchedule {
+    display: none;
+  }
 }
