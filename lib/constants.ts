@@ -38,7 +38,7 @@ export const AGENDA_SUPABASE_KEY = 'sb_publishable_gkHyCsYhIKtQ2eiTiKD6dg_NFqgwJ
 
 export const EVENT_DAYS = [
   { date: '2026-11-04', label: 'Miércoles 4 de noviembre', start: '16:00', end: '20:15' },
-  { date: '2026-11-05', label: 'Jueves 5 de noviembre', start: '11:00', end: '20:15' }
+  { date: '2026-11-05', label: 'Jueves 5 de noviembre', start: '12:00', end: '20:15' }
 ];
 export const TWEET_TEXT = META_DESCRIPTION;
 export const COOKIE = 'user-id';
