@@ -31,9 +31,13 @@ export const FULL_DATE = '4-5 Nov';
 // Endpoint de la API de Sessionize del evento (solo lectura)
 export const SESSIONIZE_ID = '6irtnp29';
 
-// Horario aproximado: aún no hay agenda cerrada en Sessionize
+// La agenda (horas, salas, pausas) sale del panel de gestión del equipo (devfest-gestion.vercel.app).
+// La clave es la publicable: solo da acceso a la función agenda_publica(); las tablas están cerradas.
+export const AGENDA_SUPABASE_URL = 'https://tzinuhrvdwovjvwztpla.supabase.co';
+export const AGENDA_SUPABASE_KEY = 'sb_publishable_gkHyCsYhIKtQ2eiTiKD6dg_NFqgwJWd';
+
 export const EVENT_DAYS = [
-  { date: '2026-11-04', label: 'Miércoles 4 de noviembre', start: '16:30', end: '20:15' },
+  { date: '2026-11-04', label: 'Miércoles 4 de noviembre', start: '16:00', end: '20:15' },
   { date: '2026-11-05', label: 'Jueves 5 de noviembre', start: '11:00', end: '20:15' }
 ];
 export const TWEET_TEXT = META_DESCRIPTION;
