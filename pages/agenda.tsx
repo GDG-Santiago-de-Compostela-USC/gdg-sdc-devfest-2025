@@ -26,13 +26,13 @@ import PageHero from '@components/page-hero';
 import ScheduleGrid from '@components/schedule-grid';
 
 import { AgendaDia, getAgenda } from '@lib/agenda';
-import { getSessionizeData, SessionizeTalk } from '@lib/sessionize';
+import { getCharlas, PublicTalk } from '@lib/charlas';
 import { EVENT_DAYS, META_DESCRIPTION, SITE_NAME } from '@lib/constants';
 
 // Con agenda se pinta el horario; sin ella (aún sin colocar o sin conexión), el listado de charlas.
 type Props = {
   agenda: AgendaDia[] | null;
-  talks: SessionizeTalk[];
+  talks: PublicTalk[];
 };
 
 export default function SchedulePage({ agenda, talks }: Props) {
@@ -87,7 +87,7 @@ function Aviso({ children }: { children: ReactNode }) {
   );
 }
 
-function ListadoCharlas({ talks }: { talks: SessionizeTalk[] }) {
+function ListadoCharlas({ talks }: { talks: PublicTalk[] }) {
   return (
     <>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -167,7 +167,7 @@ function ListadoCharlas({ talks }: { talks: SessionizeTalk[] }) {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const agenda = await getAgenda();
-  const talks = agenda ? [] : (await getSessionizeData()).talks;
+  const talks = agenda ? [] : (await getCharlas()).talks;
 
   return {
     props: {

@@ -19,7 +19,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import Page from '@components/page';
 import Layout from '@components/layout';
 
-import { getSessionizeData } from '@lib/sessionize';
+import { getCharlas } from '@lib/charlas';
 import { Speaker, Talk } from '@lib/types';
 import { META_DESCRIPTION, SITE_NAME } from '@lib/constants';
 import TalkSection from '@components/talk-section';
@@ -44,7 +44,7 @@ export default function SpeakerPage({ talk }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const { talks } = await getSessionizeData();
+  const { talks } = await getCharlas();
   const talk = talks.find(t => t.slug === params?.slug);
 
   if (!talk) {
@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   return {
     props: {
-      // Sessionize has no schedule yet: start/end stay empty until it is published
+      // The schedule lives in /agenda: start/end stay empty here
       talk: {
         title: talk.title,
         description: talk.description,
@@ -70,7 +70,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { talks } = await getSessionizeData();
+  const { talks } = await getCharlas();
 
   return {
     paths: talks.map(t => ({ params: { slug: t.slug } })),

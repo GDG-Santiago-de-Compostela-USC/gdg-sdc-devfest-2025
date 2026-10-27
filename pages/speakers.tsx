@@ -22,7 +22,7 @@ import Layout from '@components/layout';
 import PageHero from '@components/page-hero';
 import LinkButton from '@components/hms/LinkButton';
 
-import { getSessionizeData } from '@lib/sessionize';
+import { getCharlas } from '@lib/charlas';
 import { Speaker } from '@lib/types';
 import { META_DESCRIPTION, SITE_NAME } from '@lib/constants';
 
@@ -56,7 +56,7 @@ export default function Speakers({ speakers }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const { speakers } = await getSessionizeData();
+  const { speakers } = await getCharlas();
 
   return {
     props: {

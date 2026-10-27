@@ -28,11 +28,8 @@ export const DATE = '4 y 5 de Noviembre 2026';
 export const SHORT_DATE = '4-5 Nov';
 export const FULL_DATE = '4-5 Nov';
 
-// Endpoint de la API de Sessionize del evento (solo lectura)
-export const SESSIONIZE_ID = '6irtnp29';
-
-// La agenda (horas, salas, pausas) sale del panel de gestión del equipo (devfest-gestion.vercel.app).
-// La clave es la publicable: solo da acceso a la función agenda_publica(); las tablas están cerradas.
+// Charlas, ponentes y agenda salen del panel de gestión del equipo (devfest-gestion.vercel.app).
+// La clave es la publicable: solo da acceso a web_publica() y agenda_publica(); las tablas están cerradas.
 export const AGENDA_SUPABASE_URL = 'https://tzinuhrvdwovjvwztpla.supabase.co';
 export const AGENDA_SUPABASE_KEY = 'sb_publishable_gkHyCsYhIKtQ2eiTiKD6dg_NFqgwJWd';
 

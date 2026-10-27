@@ -20,7 +20,7 @@ import Page from '@components/page';
 import SpeakerSection from '@components/speaker-section';
 import Layout from '@components/layout';
 
-import { getSessionizeData } from '@lib/sessionize';
+import { getCharlas } from '@lib/charlas';
 import { Speaker } from '@lib/types';
 import { META_DESCRIPTION, SITE_NAME } from '@lib/constants';
 
@@ -45,7 +45,7 @@ export default function SpeakerPage({ speaker, talks }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const { speakers, talks } = await getSessionizeData();
+  const { speakers, talks } = await getCharlas();
   const speaker = speakers.find(s => s.slug === params?.slug);
 
   if (!speaker) {
@@ -66,7 +66,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { speakers } = await getSessionizeData();
+  const { speakers } = await getCharlas();
 
   return {
     paths: speakers.map(s => ({ params: { slug: s.slug } })),
