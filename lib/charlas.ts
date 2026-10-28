@@ -35,6 +35,11 @@ export type PublicTalk = {
   description: string;
   level: string | null;
   duration: number | null;
+  // Día (YYYY-MM-DD), horas (HH:MM, hora de Santiago) y sala; null mientras la charla no esté colocada
+  dia: string | null;
+  inicio: string | null;
+  fin: string | null;
+  sala: string | null;
   speakers: PublicSpeaker[];
 };
 
@@ -46,6 +51,10 @@ type Respuesta = {
     descripcion: string | null;
     nivel: string | null;
     duracion: number;
+    dia: string | null;
+    inicio: string | null;
+    fin: string | null;
+    sala: string | null;
     ponentes: string[];
   }[];
 };
@@ -81,6 +90,10 @@ export async function getCharlas(): Promise<{
       description: s.descripcion ?? '',
       level: s.nivel,
       duration: s.duracion,
+      dia: s.dia,
+      inicio: s.inicio,
+      fin: s.fin,
+      sala: s.sala,
       speakers: s.ponentes
         .map(slug => speakers.find(sp => sp.slug === slug))
         .filter((sp): sp is PublicSpeaker => Boolean(sp))

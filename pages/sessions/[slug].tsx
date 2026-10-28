@@ -55,12 +55,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   return {
     props: {
-      // The schedule lives in /agenda: start/end stay empty here
       talk: {
         title: talk.title,
         description: talk.description,
-        start: '',
-        end: '',
+        // Noviembre en Santiago es UTC+1; sin día la charla aún no está en la agenda
+        start: talk.dia && talk.inicio ? `${talk.dia}T${talk.inicio}:00+01:00` : '',
+        end: talk.dia && talk.fin ? `${talk.dia}T${talk.fin}:00+01:00` : '',
+        ...(talk.sala ? { stage: { name: talk.sala } } : {}),
         slug: talk.slug,
         speaker: talk.speakers as unknown as Speaker[]
       }
