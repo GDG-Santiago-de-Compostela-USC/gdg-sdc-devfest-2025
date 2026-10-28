@@ -25,6 +25,7 @@ module.exports = {
       'localhost', // For Strapi
       'sessionize.com',
       'cdn.sessionize.com',
+      'devfest.gdg-sdc.org', // fotos de ponentes que no están en Sessionize (public/speakers)
       'upload.wikimedia.org',
       'images.unsplash.com',
       'github.githubassets.com',
