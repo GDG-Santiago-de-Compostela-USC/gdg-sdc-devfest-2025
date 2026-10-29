@@ -60,21 +60,33 @@
   display: none;
 }
 
-/* Platinum: 1 centered column for single sponsor */
+/* Platinum: 1 column on mobile, 2 side by side from tablet */
 .platinumGrid {
   grid-template-columns: 1fr;
   max-width: 500px;
   margin: 0 auto;
-  justify-items: center;
 }
 
 @media (min-width: 640px) {
   .platinumGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 40px;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
   }
+}
+
+.platinumGrid .logoSection {
+  flex: none;
+  height: 160px;
+}
+
+.platinumGrid > a {
+  display: flex;
+}
+
+.platinumGrid .card {
+  width: 100%;
 }
 
 /* Gold: 3 columns for multiple sponsors */

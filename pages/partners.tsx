@@ -28,6 +28,35 @@ import { META_DESCRIPTION, SITE_NAME } from '@lib/constants';
 
 // Sponsors confirmados para DevFest Santiago 2026
 const REAL_SPONSORS: Sponsor[] = [
+  // Platinum Tier
+  {
+    name: 'AVTE - USC',
+    description: 'Área de Valorización, Transferencia e Emprendemento de la Universidade de Santiago de Compostela.',
+    slug: 'avte',
+    website: 'https://www.usc.gal/gl/servizos/area/valorizacion-transferencia-emprendemento',
+    callToAction: 'Conoce el AVTE',
+    callToActionLink: 'https://www.usc.gal/gl/servizos/area/valorizacion-transferencia-emprendemento',
+    links: [],
+    discord: '',
+    tier: 'Platinum',
+    cardImage: { url: '' },
+    logo: { url: '/avte.png' },
+    youtubeSlug: ''
+  },
+  {
+    name: 'OSIX',
+    description: 'Estudio de software de Santiago de Compostela que diseña y construye productos digitales.',
+    slug: 'osix',
+    website: 'https://osix.tech',
+    callToAction: 'Conoce OSIX',
+    callToActionLink: 'https://osix.tech',
+    links: [],
+    discord: '',
+    tier: 'Platinum',
+    cardImage: { url: '' },
+    logo: { url: '/osix.png' },
+    youtubeSlug: ''
+  },
   // Silver Tier
   {
     name: 'Raiola Networks',
