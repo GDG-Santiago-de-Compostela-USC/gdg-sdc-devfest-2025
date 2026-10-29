@@ -45,7 +45,7 @@ const REAL_SPONSORS: Sponsor[] = [
   },
   {
     name: 'OSIX',
-    description: 'Estudio de software de Santiago de Compostela que diseña y construye productos digitales.',
+    description: 'Consultoría de IA y desarrollo de software a medida para pymes de Galicia y España: automatización y agentes de IA en producción, con resultados medidos.',
     slug: 'osix',
     website: 'https://osix.tech',
     callToAction: 'Conoce OSIX',
