@@ -76,6 +76,14 @@
   }
 }
 
+/* A single sponsor in a tier: one centred card instead of the first column of the grid */
+@media (min-width: 640px) {
+  .platinumGrid.solo {
+    grid-template-columns: minmax(0, 500px);
+    justify-content: center;
+  }
+}
+
 .platinumGrid .logoSection {
   flex: none;
   height: 160px;

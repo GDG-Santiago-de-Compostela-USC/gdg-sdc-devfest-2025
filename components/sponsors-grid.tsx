@@ -123,7 +123,7 @@ const TierSection = ({
         <h2 className={styles.tierTitle}>{title}</h2>
       </div>
       
-      <div className={cn(styles.grid, styles[`${tier.toLowerCase()}Grid`])}>
+      <div className={cn(styles.grid, styles[`${tier.toLowerCase()}Grid`], sponsors.length === 1 && styles.solo)}>
         {sponsors.map(sponsor => (
           <SponsorCard 
             key={sponsor.slug || sponsor.name} 
