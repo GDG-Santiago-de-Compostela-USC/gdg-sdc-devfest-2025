@@ -30,20 +30,6 @@ import { META_DESCRIPTION, SITE_NAME } from '@lib/constants';
 const REAL_SPONSORS: Sponsor[] = [
   // Platinum Tier
   {
-    name: 'AVTE - USC',
-    description: 'Área de Valorización, Transferencia e Emprendemento de la Universidade de Santiago de Compostela.',
-    slug: 'avte',
-    website: 'https://www.usc.gal/gl/servizos/area/valorizacion-transferencia-emprendemento',
-    callToAction: 'Conoce el AVTE',
-    callToActionLink: 'https://www.usc.gal/gl/servizos/area/valorizacion-transferencia-emprendemento',
-    links: [],
-    discord: '',
-    tier: 'Platinum',
-    cardImage: { url: '' },
-    logo: { url: '/avte.png' },
-    youtubeSlug: ''
-  },
-  {
     name: 'OSIX',
     description: 'Consultoría de IA y desarrollo de software a medida para pymes de Galicia y España: automatización y agentes de IA en producción, con resultados medidos.',
     slug: 'osix',
