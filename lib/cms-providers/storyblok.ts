@@ -248,6 +248,9 @@ export async function getAllTeamMembers(): Promise<TeamMember[]> {
     return [];
   }
 
+  // Quién sale en la web lo decidimos aquí: Storyblok aún guarda a gente que ya no está en el equipo.
   const transformedData = transformResponse(data.TeamItems.items);
-  return transformedData;
+  return transformedData.filter((m: TeamMember) => EQUIPO_ACTUAL.includes(m.slug));
 }
+
+const EQUIPO_ACTUAL = ['judit-gonzalez', 'mateo-bodenlle', 'diego-cristobal', 'sara-castro', 'iago-feijoo'];
