@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Apertura · DevFest Santiago 2026</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+@font-face{font-family:'GSD';src:url(/presentacion/assets/92b7cee5d41127bd4e1284612398110a.ttf) format('truetype');font-display:block}@font-face{font-family:'GSD Bold';src:url(/presentacion/assets/86fb29539bbf8fdd4d87e368d5801622.ttf) format('truetype');font-display:block}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#1A1A1A;overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center}
+#stage>section{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+#stage>section.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+img{display:block}
+b{font-family:'GSD Bold',Arial,sans-serif;font-weight:700}
+#ui{position:fixed;right:16px;bottom:12px;font:14px system-ui,sans-serif;color:#9a9a9a;opacity:0;transition:opacity .3s}
+body:hover #ui{opacity:1}
+</style></head><body>
+<div id="stage">
+<section id="cover" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:128px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:64px">
+<div style="position:absolute;right:88px;top:64px;width:290px;display:flex;flex-direction:column;align-items:center;gap:20px;transform:rotate(6deg)">
+<div style="position:relative;width:250px;height:250px">
+<div style="position:absolute;left:16px;top:16px;width:234px;height:234px;background:linear-gradient(90deg, #4285F4 0%, #4285F4 25%, #EA4335 25%, #EA4335 50%, #F9AB00 50%, #F9AB00 75%, #34A853 75%, #34A853 100%);border:4px solid #1A1A1A;border-radius:28px"></div>
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;left:0px;top:0px;width:234px;height:234px;object-fit:contain;background:#FFFFFF;border:4px solid #1A1A1A;border-radius:28px">
+</div>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px;background:#1A1A1A;color:#F0F0F0;border-radius:999px;padding:8px 24px;white-space:nowrap">Toda la info, aquí</p>
+</div>
+<img src="/presentacion/assets/fb1e7823163271ebc70b7c5b4699a5c1.png" alt="" style="position:absolute;left:48px;top:40px;width:170px;height:170px;object-fit:contain;transform:rotate(-8deg)">
+<img src="/presentacion/assets/6db1a65baf4b97f94c793ce7942a91e5.png" alt="" style="position:absolute;left:48px;bottom:40px;width:170px;height:170px;object-fit:contain;transform:rotate(-6deg)">
+<img src="/presentacion/assets/1e7cd80aec9925242222a30dd172269e.png" alt="" style="position:absolute;right:56px;bottom:40px;width:170px;height:170px;object-fit:contain;transform:rotate(10deg)">
+<img src="/presentacion/assets/d1170aa2239ee037ee94bcabb6cef9bd.png" alt="DevFest Santiago de Compostela" style="width:1180px;height:356px;object-fit:contain">
+<div style="display:flex;flex-direction:row;align-items:center;gap:32px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:60px;line-height:1.1;background:#F9AB00;border:5px solid #1A1A1A;border-radius:999px;padding:16px 56px;white-space:nowrap">4 &amp; 5 de noviembre</p>
+<p style="font-size:40px;line-height:1.2;background:#FAFAF7;border:5px solid #1A1A1A;border-radius:999px;padding:22px 48px;white-space:nowrap">ETSE · USC</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:32px">
+<p style="font-size:48px;line-height:1.1;background:#F9AB00;border:4px solid #1A1A1A;border-radius:999px;padding:10px 40px">2026</p>
+<img src="/presentacion/assets/5cd0d7c2042eea1c71304bfe7f3aae99.png" alt="" style="width:90px;height:80px;object-fit:contain">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="width:264px;height:90px;object-fit:contain">
+</div>
+
+</section>
+
+<section id="gdg" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:row;align-items:center;gap:72px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<div style="width:820px;display:flex;flex-direction:column;gap:32px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:2px;color:#5F6368">Quiénes somos</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">¿Qué es un Google Developer Group?</h2>
+<p style="font-size:32px;line-height:1.4;color:#3C3C3C">Comunidades locales que reúnen a gente de la tecnología, desde quien empieza hasta perfiles senior, para conectar, aprender y crecer con las tecnologías y los expertos de Google.</p>
+<div style="display:flex;flex-direction:row;gap:56px">
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:96px;line-height:1;color:#4285F4">2.000+</p>
+<p style="font-size:28px;color:#3C3C3C">grupos en el mundo</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:96px;line-height:1;color:#34A853">1.000+</p>
+<p style="font-size:28px;color:#3C3C3C">expertos de la industria</p>
+</div>
+</div>
+</div>
+<img src="/presentacion/assets/60610bd22226eb1215b9d3cff0ff6e64.jpg" alt="Mapa del mundo con los Google Developer Groups" style="width:780px;height:457px;object-fit:cover;border:4px solid #1A1A1A;border-radius:32px">
+
+</section>
+
+<section id="galicia" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:2px;color:#5F6368">Quiénes somos</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">En Galicia somos tres GDG</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:16px;background:#FFFFFF;border:4px solid #1A1A1A;border-top:24px solid #4285F4;border-radius:32px;padding:32px 40px 40px">
+<img src="/presentacion/assets/2afa02ed408afdf215439b2890db96c8.jpg" alt="Logo de GDG A Coruña" style="width:300px;height:300px;object-fit:contain">
+<h3 style="font-family:'GSD Bold', Arial, sans-serif;font-size:52px;font-weight:700;line-height:1.1">A Coruña</h3>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:16px;background:#FFFFFF;border:4px solid #1A1A1A;border-top:24px solid #34A853;border-radius:32px;padding:32px 40px 40px">
+<img src="/presentacion/assets/ecfe3391a10fe306222c346829d49c4b.jpg" alt="Logo de GDG Ourense" style="width:300px;height:300px;object-fit:contain">
+<h3 style="font-family:'GSD Bold', Arial, sans-serif;font-size:52px;font-weight:700;line-height:1.1">Ourense</h3>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:16px;background:#F9AB00;border:4px solid #1A1A1A;border-top:24px solid #1A1A1A;border-radius:32px;padding:32px 40px 40px">
+<div style="width:300px;height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#FFFFFF;border:4px solid #1A1A1A;border-radius:28px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Logo de Google Developer Groups" style="width:240px;height:82px;object-fit:contain">
+</div>
+<h3 style="font-family:'GSD Bold', Arial, sans-serif;font-size:52px;font-weight:700;line-height:1.1">Santiago</h3>
+</div>
+</div>
+<p style="font-size:34px;line-height:1.35;color:#3C3C3C">Nos coordinamos entre nosotros: compartimos ponentes, comunidad y eventos. Sin ir más lejos, Miguel Darío, organizador del GDG A Coruña, da una charla el jueves.</p>
+
+</section>
+
+<section id="equipo" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:2px;color:#5F6368">Quiénes somos</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">El equipo de GDG Santiago</h2>
+</div>
+<div style="display:flex;flex-direction:row;justify-content:space-around">
+<div style="width:300px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<img src="/presentacion/assets/6f67cf91631b33c182b9fe86c306c04e.jpg" alt="Judit González Prol" style="width:180px;height:180px;object-fit:cover;border:5px solid #4285F4;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:30px;text-align:center;line-height:1.2">Judit González Prol</p>
+<p style="font-size:24px;color:#5F6368;text-align:center">Presidencia</p>
+</div>
+<div style="width:300px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<img src="/presentacion/assets/41c950f4784bb9fc4d5d74856310231b.jpg" alt="Mateo Bodenlle Villarino" style="width:180px;height:180px;object-fit:cover;border:5px solid #EA4335;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:30px;text-align:center;line-height:1.2">Mateo Bodenlle Villarino</p>
+<p style="font-size:24px;color:#5F6368;text-align:center">Tesorería</p>
+</div>
+<div style="width:300px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<img src="/presentacion/assets/62013a7b7d929282012acad4eaecc4c2.jpg" alt="Diego Cristóbal" style="width:180px;height:180px;object-fit:cover;border:5px solid #F9AB00;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:30px;text-align:center;line-height:1.2">Diego Cristóbal</p>
+<p style="font-size:24px;color:#5F6368;text-align:center">Secretaría</p>
+</div>
+<div style="width:300px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<img src="/presentacion/assets/d773076858e8b449a2d42a02ed2e1d34.jpg" alt="Aldan Creo" style="width:180px;height:180px;object-fit:cover;border:5px solid #34A853;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:30px;text-align:center;line-height:1.2">Aldan Creo</p>
+<p style="font-size:24px;color:#5F6368;text-align:center">Organización</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;justify-content:center;gap:120px">
+<div style="width:300px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<img src="/presentacion/assets/ae38cebefb373eb2e159b571182cd087.jpg" alt="Laura Antelo" style="width:180px;height:180px;object-fit:cover;border:5px solid #4285F4;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:30px;text-align:center;line-height:1.2">Laura Antelo</p>
+<p style="font-size:24px;color:#5F6368;text-align:center">Organización</p>
+</div>
+<div style="width:300px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<img src="/presentacion/assets/92b3a969e5ba2d24e11a19e327622e84.jpg" alt="Iago Feijóo Rey" style="width:180px;height:180px;object-fit:cover;border:5px solid #EA4335;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:30px;text-align:center;line-height:1.2">Iago Feijóo Rey</p>
+<p style="font-size:24px;color:#5F6368;text-align:center">Organización</p>
+</div>
+<div style="width:300px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<img src="/presentacion/assets/b195a00406125b69ed6b36cf2ad3215f.jpg" alt="Sara Castro" style="width:180px;height:180px;object-fit:cover;border:5px solid #34A853;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:30px;text-align:center;line-height:1.2">Sara Castro</p>
+<p style="font-size:24px;color:#5F6368;text-align:center">Organización</p>
+</div>
+</div>
+
+</section>
+
+<section id="actividad" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:32px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:2px;color:#5F6368">Qué hacemos</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Un año de comunidad… y lo que viene</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px">Este año</p>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FAFAF7;border:4px solid #1A1A1A;border-radius:28px;padding:24px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;color:#C5221F">16 oct 2025</p>
+<p style="font-size:24px;text-transform:uppercase;letter-spacing:1px;color:#5F6368">Gala</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;line-height:1.2">Gala Sirviendo Código</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FAFAF7;border:4px solid #1A1A1A;border-radius:28px;padding:24px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;color:#B06000">23 feb 2026</p>
+<p style="font-size:24px;text-transform:uppercase;letter-spacing:1px;color:#5F6368">Hackathon</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;line-height:1.2">OdiseIA4Good: IA para colectivos vulnerables</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FAFAF7;border:4px solid #1A1A1A;border-radius:28px;padding:24px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;color:#188038">10–12 abr 2026</p>
+<p style="font-size:24px;text-transform:uppercase;letter-spacing:1px;color:#5F6368">Hackathon</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;line-height:1.2">Impact-thon ETSE · USC</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FAFAF7;border:4px solid #1A1A1A;border-radius:28px;padding:24px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;color:#1967D2">20 may 2026</p>
+<p style="font-size:24px;text-transform:uppercase;letter-spacing:1px;color:#5F6368">Watch party</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;line-height:1.2">Google I/O 2026 en Santiago</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#F9AB00;border:4px solid #1A1A1A;border-radius:28px;padding:24px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;color:#1A1A1A">4–5 nov 2026</p>
+<p style="font-size:24px;text-transform:uppercase;letter-spacing:1px;color:#1A1A1A">Hoy</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;line-height:1.2">DevFest Santiago 2026</p>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px">Lo que viene</p>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:stretch">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#1A1A1A;color:#F0F0F0;border:4px solid #1A1A1A;border-radius:28px;padding:24px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;color:#F9AB00">Próximamente</p>
+<p style="font-size:24px;text-transform:uppercase;letter-spacing:1px;color:#BDBDBD">Hackathon</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;line-height:1.2">Impact-thon: vuelve</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;background:#FAFAF7;border:4px dashed #1A1A1A;border-radius:28px;padding:24px;overflow:hidden">
+<div style="display:flex;flex-direction:column;gap:8px;filter:blur(9px)">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;color:#C5221F">?? ??? 2027</p>
+<p style="font-size:24px;text-transform:uppercase;letter-spacing:1px;color:#5F6368">Taller</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;line-height:1.2">Build with AI en la ETSE</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;background:#FAFAF7;border:4px dashed #1A1A1A;border-radius:28px;padding:24px;overflow:hidden">
+<div style="display:flex;flex-direction:column;gap:8px;filter:blur(9px)">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;color:#188038">?? ??? 2027</p>
+<p style="font-size:24px;text-transform:uppercase;letter-spacing:1px;color:#5F6368">Evento</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;line-height:1.2">Algo que aún no podemos contar</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;background:#FAFAF7;border:4px dashed #1A1A1A;border-radius:28px;padding:24px;overflow:hidden">
+<div style="display:flex;flex-direction:column;gap:8px;filter:blur(9px)">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;color:#1967D2">?? ??? 2027</p>
+<p style="font-size:24px;text-transform:uppercase;letter-spacing:1px;color:#5F6368">Comunidad</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;line-height:1.2">Encuentro de los GDG gallegos</p>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+<section id="comunidad" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Así se ve la comunidad</h2>
+<div style="flex:1;display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:24px">
+<div style="grid-row:span 2;display:flex;border:4px solid #1A1A1A;border-radius:28px;overflow:hidden"><img src="/presentacion/assets/4d0d42ae0b803184648ead6632cac148.jpg" alt="Participantes del Impact-thon en un aula de la ETSE" style="width:100%;height:100%;object-fit:cover"></div>
+<div style="display:flex;border:4px solid #1A1A1A;border-radius:28px;overflow:hidden"><img src="/presentacion/assets/047a68161e93c8120c9a0d0cbc0a6309.jpg" alt="Charla en la ETSE" style="width:100%;height:100%;object-fit:cover"></div>
+<div style="display:flex;border:4px solid #1A1A1A;border-radius:28px;overflow:hidden"><img src="/presentacion/assets/821ce02752ad13986bbdecb99fdb4c20.jpg" alt="Auditorio iluminado en morado durante OdiseIA" style="width:100%;height:100%;object-fit:cover"></div>
+<div style="display:flex;border:4px solid #1A1A1A;border-radius:28px;overflow:hidden"><img src="/presentacion/assets/97f38e76dcab0e24151117f9584db16b.jpg" alt="Stand de GDG Santiago con el roll-up del DevFest" style="width:100%;height:100%;object-fit:cover"></div>
+<div style="display:flex;border:4px solid #1A1A1A;border-radius:28px;overflow:hidden"><img src="/presentacion/assets/952ddf855360c414e1221966f57844a8.jpg" alt="Asistentes en un aula durante una sesión" style="width:100%;height:100%;object-fit:cover"></div>
+</div>
+
+</section>
+
+<section id="unete" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:row;align-items:center;gap:96px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:2px;color:#5F6368">Únete</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Súmate a GDG Santiago</h2>
+<p style="font-size:32px;line-height:1.4;color:#3C3C3C">Hazte miembro y te avisamos de cada evento. Y si te apetece organizar con nosotros, buscamos gente:</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<p style="font-size:30px;background:#FAFAF7;border:3px solid #1A1A1A;border-left:16px solid #4285F4;border-radius:16px;padding:14px 24px">Networking</p>
+<p style="font-size:30px;background:#FAFAF7;border:3px solid #1A1A1A;border-left:16px solid #EA4335;border-radius:16px;padding:14px 24px">Contacto con empresas</p>
+<p style="font-size:30px;background:#FAFAF7;border:3px solid #1A1A1A;border-left:16px solid #F9AB00;border-radius:16px;padding:14px 24px">Organizar eventos y equipos</p>
+<p style="font-size:30px;background:#FAFAF7;border:3px solid #1A1A1A;border-left:16px solid #34A853;border-radius:16px;padding:14px 24px">Libertad para elegir tecnologías</p>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px">
+<p style="font-size:30px"><b>Instagram</b> @gdgsantiagoes</p>
+<p style="font-size:30px"><b>X</b> @GDGSantiagoES</p>
+</div>
+</div>
+<div style="width:520px;display:flex;flex-direction:column;align-items:center;gap:20px">
+<img src="/presentacion/assets/c313fb2b3e4460f4db3e4016ca1428ac.png" alt="Código QR a la página de GDG Santiago en community.dev" style="width:460px;height:460px;object-fit:contain;background:#FFFFFF;border:5px solid #1A1A1A;border-radius:40px;box-shadow:12px 12px 0px #F9AB00">
+<p style="font-size:26px;text-align:center;color:#3C3C3C">gdg.community.dev/<br>gdg-santiago-de-compostela</p>
+</div>
+
+</section>
+
+<section id="devfest" data-transition="fade" style="background:#1A1A1A;color:#F0F0F0;font-family:GSD, Arial, sans-serif;padding:128px;display:flex;flex-direction:column;justify-content:center;gap:56px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;letter-spacing:3px;color:#F9AB00">El DevFest</p>
+<h1 style="font-family:'GSD Bold', Arial, sans-serif;font-size:160px;font-weight:700;line-height:1">¿Qué es un DevFest?</h1>
+<p style="font-size:44px;line-height:1.3;color:#D6D6D6;width:1400px">El evento anual de los Google Developer Groups: cada grupo monta el suyo, en su ciudad y a su manera.</p>
+</div>
+<div style="display:flex;flex-direction:row;gap:96px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:120px;line-height:1;color:#8AB4F8">790</p>
+<p style="font-size:32px;color:#D6D6D6">DevFests</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:120px;line-height:1;color:#F28B82">114</p>
+<p style="font-size:32px;color:#D6D6D6">países</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:120px;line-height:1;color:#81C995">635.000+</p>
+<p style="font-size:32px;color:#D6D6D6">personas</p>
+</div>
+</div>
+<p style="font-size:24px;color:#9AA0A6">Cifras globales de la temporada 2025</p>
+
+</section>
+
+<section id="miercoles" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Miércoles 4 · <span style="color:#1967D2">hoy</span></h2>
+<div style="display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">16:00</p>
+<p style="width:806px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2">Apertura</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">GDG Santiago</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">16:20</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Empezando mi carrera en la era de la IA</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Diego Rodríguez Varela y Unai Zorrilla</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">16:20</p>
+<p style="width:806px;font-size:24px;line-height:1.2">365pelis.com</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Iñaki Quenerapú</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#CEEAD6;border:3px solid #34A853;border-radius:999px;padding:2px 16px;white-space:nowrap">Aula A6</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">17:05</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Cómo fracasar estrepitosamente al explicar tus proyectos</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Martin Diaz</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">17:05</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Tu agente de IA funciona. ¿Y ahora qué? Del prototipo a producción</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Christian Carballo y Sara San Luís</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#CEEAD6;border:3px solid #34A853;border-radius:999px;padding:2px 16px;white-space:nowrap">Aula A6</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">17:55</p>
+<p style="width:806px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2">Pinchos</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Hasta las 18:30</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#FEEFC3;border:3px solid #F9AB00;border-radius:999px;padding:2px 16px;white-space:nowrap">Cafetería</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">18:35</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Evolución y Escalabilidad: cómo transformar cientos de aplicaciones gracias a la IA</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Jordi Serra Gonzalez</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">18:35</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Detectar fugas de agua sin tocar una tubería</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Ignacio Garbayo Fernández</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#FAD2CF;border:3px solid #EA4335;border-radius:999px;padding:2px 16px;white-space:nowrap">Aula A7</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">19:30</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Adiós intents, hola agentes: haciendo el Camino de Santiago de Dialogflow CX a CX Agent Studio</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Marc Rodríguez</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">19:30</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Lanzando apps con IA: el siguiente paso al desarrollo</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Andrés Osorio Leyenda</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#CEEAD6;border:3px solid #34A853;border-radius:999px;padding:2px 16px;white-space:nowrap">Aula A6</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">20:15</p>
+<p style="width:806px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2">Cañas del DevFest en La Cervecería Internacional</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Al acabar las charlas</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#F9AB00;border:3px solid #1A1A1A;border-radius:999px;padding:2px 16px;white-space:nowrap">Cervecería</p></div>
+</div>
+</div>
+
+</section>
+
+<section id="jueves" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Jueves 5 · <span style="color:#1967D2">mañana y tarde</span></h2>
+<div style="display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">12:00</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Beyond the Screen: Building for Android XR</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Carlos Mota</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">12:00</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Le hablo al móvil y el trabajo se hace: cuánta autonomía darle a tu asistente de IA</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Miguel González</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#CEEAD6;border:3px solid #34A853;border-radius:999px;padding:2px 16px;white-space:nowrap">Aula A6</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">13:05</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Potenciando QA: Agilidad en E2E para Webs</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Jordi Serra Gonzalez</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">14:00</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Dándole “manos” a tu IA con Chrome DevTools MCP</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Miguel Darío García Quintas</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">14:45</p>
+<p style="width:806px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2">Comida</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Hasta las 15:35</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#FEEFC3;border:3px solid #F9AB00;border-radius:999px;padding:2px 16px;white-space:nowrap">Cafetería</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">15:40</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Building Inclusive AI Experiences with Sign Language and GenAI</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Carlos Mota</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">16:00</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Build Apps Without Coding Using Gemini and Google AI Studio</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">David Martinez</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#FAD2CF;border:3px solid #EA4335;border-radius:999px;padding:2px 16px;white-space:nowrap">Aula A7</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">16:30</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Software Post-IA</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Pablo Pazos</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">16:45</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Revive tus fotos con IA creando un restaurador inteligente de imágenes</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">David Martinez</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#FAD2CF;border:3px solid #EA4335;border-radius:999px;padding:2px 16px;white-space:nowrap">Aula A7</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">17:05</p>
+<p style="width:806px;font-size:24px;line-height:1.2">Auria, conducción inteligente</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Equipo de Auria</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0;border-bottom:2px solid #D0D0D0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">17:55</p>
+<p style="width:806px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2">Pinchos</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Hasta las 18:35</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#FEEFC3;border:3px solid #F9AB00;border-radius:999px;padding:2px 16px;white-space:nowrap">Cafetería</p></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px;padding:7px 0">
+<p style="width:96px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:26px">18:40</p>
+<p style="width:806px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2">Mesa redonda y, a las 20:00, clausura</p>
+<p style="width:400px;font-size:24px;line-height:1.2;color:#4A4A4A">Cierre del DevFest</p>
+<div style="width:250px;display:flex;flex-direction:row"><p style="font-size:24px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:2px 16px;white-space:nowrap">Salón de actos</p></div>
+</div>
+</div>
+
+</section>
+
+<section id="practica" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:2px;color:#5F6368">Info práctica</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Para no perderte nada</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px">
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:20px;background:#FAFAF7;border:4px solid #1A1A1A;border-radius:32px;padding:40px">
+<h3 style="font-family:'GSD Bold', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15">Tres salas a la vez</h3>
+<div style="display:flex;flex-direction:row;flex-wrap:wrap;gap:16px">
+<p style="font-size:28px;background:#D2E3FC;border:3px solid #4285F4;border-radius:999px;padding:4px 22px">Salón de actos</p>
+<p style="font-size:28px;background:#CEEAD6;border:3px solid #34A853;border-radius:999px;padding:4px 22px">Aula A6</p>
+<p style="font-size:28px;background:#FAD2CF;border:3px solid #EA4335;border-radius:999px;padding:4px 22px">Aula A7</p>
+</div>
+<p style="font-size:28px;line-height:1.35;color:#4A4A4A">Cada charla dice su sala en el horario y en los carteles de las puertas.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px;background:#FAFAF7;border:4px solid #1A1A1A;border-radius:32px;padding:40px">
+<h3 style="font-family:'GSD Bold', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15">Pausas en la cafetería</h3>
+<p style="font-size:30px;line-height:1.45"><b>Pinchos</b> · 17:55, los dos días<br><b>Comida</b> · jueves, 14:45</p>
+</div>
+</div>
+<div style="width:620px;display:flex;flex-direction:column;align-items:center;gap:20px;background:#F9AB00;border:4px solid #1A1A1A;border-radius:32px;padding:40px">
+<h3 style="font-family:'GSD Bold', Arial, sans-serif;font-size:44px;font-weight:700;line-height:1.15;text-align:center">La agenda, en el móvil</h3>
+<img src="/presentacion/assets/caa7acd7e22b19174afb0a2e56d9894c.png" alt="Código QR a la agenda del DevFest" style="width:380px;height:380px;object-fit:contain;background:#FFFFFF;border:4px solid #1A1A1A;border-radius:32px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:30px;text-align:center">devfest.gdg-sdc.org/agenda</p>
+</div>
+</div>
+
+</section>
+
+<section id="patrocinadores" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:2px;color:#5F6368">Patrocinadores</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Gracias a quienes lo hacen posible</h2>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px">
+<p style="width:200px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:32px">Platinum</p>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:4px solid #1A1A1A;border-radius:32px;padding:56px;box-shadow:10px 10px 0px #8AB4F8"><img src="/presentacion/assets/ccbc1aebbdd886bc47a10e624ce577ee.png" alt="OSIX" style="width:760px;height:150px;object-fit:contain"></div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px">
+<p style="width:200px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:32px">Silver</p>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:4px solid #1A1A1A;border-radius:28px;padding:28px"><img src="/presentacion/assets/51ddd90349a575e4b65c502f1becca59.jpg" alt="Raiola Networks" style="width:400px;height:110px;object-fit:contain"></div>
+<div style="flex:1;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:4px solid #1A1A1A;border-radius:28px;padding:28px"><img src="/presentacion/assets/a84b3fa7bbf6352e0264edc3ff46f736.png" alt="dinahosting" style="width:400px;height:110px;object-fit:contain"></div>
+</div>
+
+</section>
+
+<section id="redes" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:row;align-items:center;gap:120px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<img src="/presentacion/assets/6db1a65baf4b97f94c793ce7942a91e5.png" alt="" style="position:absolute;left:40px;top:40px;width:140px;height:140px;object-fit:contain;transform:rotate(-8deg)">
+<div style="flex:1;display:flex;flex-direction:column;gap:40px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:2px;color:#5F6368">Compártelo</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:88px;font-weight:700;line-height:1.05">Cuéntalo en redes</h2>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FAFAF7;border:4px solid #1A1A1A;border-left:20px solid #EA4335;border-radius:28px;padding:32px 40px">
+<h3 style="font-family:'GSD Bold', Arial, sans-serif;font-size:40px;font-weight:700">Instagram</h3>
+<p style="font-size:32px;line-height:1.35">Síguenos en <b>@gdgsantiagoes</b> y etiquétanos en tus historias.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;background:#FAFAF7;border:4px solid #1A1A1A;border-left:20px solid #4285F4;border-radius:28px;padding:32px 40px">
+<h3 style="font-family:'GSD Bold', Arial, sans-serif;font-size:40px;font-weight:700">LinkedIn</h3>
+<p style="font-size:32px;line-height:1.35">Si publicas sobre el DevFest, usa el hashtag <b>#DevFestSdC</b>.</p>
+</div>
+</div>
+<div style="width:600px;display:flex;flex-direction:column;align-items:center;gap:28px">
+<div style="position:relative;width:560px;height:560px">
+<div style="position:absolute;left:24px;top:24px;width:536px;height:536px;background:linear-gradient(90deg, #4285F4 0%, #4285F4 25%, #EA4335 25%, #EA4335 50%, #F9AB00 50%, #F9AB00 75%, #34A853 75%, #34A853 100%);border:5px solid #1A1A1A;border-radius:44px"></div>
+<img src="/presentacion/assets/4b81156f1f7ad7063e1c97c3ec90ff22.png" alt="Código QR al Instagram de GDG Santiago" style="position:absolute;left:0px;top:0px;width:536px;height:536px;object-fit:contain;background:#FFFFFF;border:5px solid #1A1A1A;border-radius:44px">
+</div>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:36px">@gdgsantiagoes</p>
+</div>
+
+</section>
+
+<section id="canas" data-transition="fade" style="background:#F9AB00;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 128px;display:flex;flex-direction:row;align-items:center;gap:80px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<div style="width:940px;display:flex;flex-direction:column;gap:40px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;letter-spacing:3px">Cañas gratis</p>
+<h1 style="font-family:'GSD Bold', Arial, sans-serif;font-size:96px;font-weight:700;line-height:1.02">Sube una historia y la caña corre de nuestra cuenta</h1>
+<div style="display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px">
+<p style="width:72px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:40px;line-height:72px;text-align:center;background:#1A1A1A;color:#F9AB00;border-radius:50%">1</p>
+<p style="width:820px;font-size:34px;line-height:1.3">Sube a Instagram una historia del DevFest</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px">
+<p style="width:72px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:40px;line-height:72px;text-align:center;background:#1A1A1A;color:#F9AB00;border-radius:50%">2</p>
+<p style="width:820px;font-size:34px;line-height:1.3">Etiqueta a <b>@gdgsantiagoes</b></p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:28px">
+<p style="width:72px;font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:40px;line-height:72px;text-align:center;background:#1A1A1A;color:#F9AB00;border-radius:50%">3</p>
+<p style="width:820px;font-size:34px;line-height:1.3">Enséñasela a la organización y te llevas tu <b>vale por una caña</b></p>
+</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<img src="/presentacion/assets/e83d00de5d18869570a75dc1ded43238.jpg" alt="La Cervecería Internacional" style="width:640px;height:440px;object-fit:cover;border:5px solid #1A1A1A;border-radius:36px;box-shadow:14px 14px 0px #1A1A1A">
+<div style="display:flex;flex-direction:column;gap:6px;background:#FAFAF7;border:4px solid #1A1A1A;border-radius:28px;padding:24px 32px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:32px">Cañas del DevFest</p>
+<p style="font-size:28px;line-height:1.3">Miércoles 4, al acabar las charlas<br>La Cervecería Internacional</p>
+</div>
+</div>
+
+</section>
+
+<section id="fotos" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:row;align-items:center;gap:120px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<img src="/presentacion/assets/2a40c9f575e00b608265d8b6417ab166.png" alt="" style="position:absolute;left:40px;top:40px;width:150px;height:150px;object-fit:contain">
+<div style="flex:1;display:flex;flex-direction:column;gap:36px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;letter-spacing:2px;color:#5F6368">Fotos</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:88px;font-weight:700;line-height:1.05">Todas las fotos del DevFest, en un álbum</h2>
+<p style="font-size:36px;line-height:1.4;color:#3C3C3C">Escanea el código y tendrás las fotos de estos dos días. ¿Te has visto? Compártela con <b>#DevFestSdC</b>.</p>
+<p style="font-size:28px;color:#5F6368">photos.app.goo.gl/DT56SgxzYphGD16d8</p>
+</div>
+<div style="position:relative;width:640px;height:640px">
+<div style="position:absolute;left:24px;top:24px;width:616px;height:616px;background:linear-gradient(90deg, #4285F4 0%, #4285F4 25%, #EA4335 25%, #EA4335 50%, #F9AB00 50%, #F9AB00 75%, #34A853 75%, #34A853 100%);border:5px solid #1A1A1A;border-radius:48px"></div>
+<img src="/presentacion/assets/b69ab06d2cef2c67100371968f1ec43d.png" alt="Código QR al álbum de fotos del DevFest" style="position:absolute;left:0px;top:0px;width:616px;height:616px;object-fit:contain;background:#FFFFFF;border:5px solid #1A1A1A;border-radius:48px">
+</div>
+
+</section>
+
+<section id="ponentes" data-transition="fade" style="background:#F0F0F0;color:#1A1A1A;font-family:GSD, Arial, sans-serif;padding:112px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<img src="/presentacion/assets/085e2b9a74b3fee80272351fcd23c132.png" alt="Google Developer Groups" style="position:absolute;left:128px;bottom:56px;width:132px;height:45px;object-fit:contain">
+<p style="position:absolute;right:128px;bottom:64px;width:700px;text-align:right;font-size:24px;color:#5F6368">#DevFestSdC · devfest.gdg-sdc.org</p>
+<h2 style="font-family:'GSD Bold', Arial, sans-serif;font-size:72px;font-weight:700;line-height:1.1">Los 19 ponentes de esta edición</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr;gap:28px 24px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/afb6a722fff051bc7863271dca81556d.jpg" alt="Diego Rodríguez Varela" style="width:136px;height:136px;object-fit:cover;border:5px solid #4285F4;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Diego Rodríguez Varela</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/382e4f41f0b7aa1a4d5b1a76bc674610.jpg" alt="Unai Zorrilla" style="width:136px;height:136px;object-fit:cover;border:5px solid #EA4335;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Unai Zorrilla</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/a98dba0111e8ace7e803c895ec1aa0db.jpg" alt="Iñaki Quenerapú" style="width:136px;height:136px;object-fit:cover;border:5px solid #F9AB00;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Iñaki Quenerapú</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/c1806ecf8b16f92c03b4f51d6401d675.png" alt="Martin Diaz" style="width:136px;height:136px;object-fit:cover;border:5px solid #34A853;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Martin Diaz</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/8143b1f954e9b4640ab7395499e1ffa6.jpeg" alt="Christian Carballo Lozano" style="width:136px;height:136px;object-fit:cover;border:5px solid #4285F4;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Christian Carballo Lozano</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/9626fa4b402ad4a3164e8a0c17b7e5ed.jpg" alt="Sara San Luís Rodríguez" style="width:136px;height:136px;object-fit:cover;border:5px solid #EA4335;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Sara San Luís Rodríguez</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/21b5a3e6779f0ac9d19e6d6fbc0d226e.jpg" alt="Jordi Serra Gonzalez" style="width:136px;height:136px;object-fit:cover;border:5px solid #F9AB00;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Jordi Serra Gonzalez</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/cfd3032c2f8a9c9bac856bd9107d1345.jpg" alt="Ignacio Garbayo Fernández" style="width:136px;height:136px;object-fit:cover;border:5px solid #34A853;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Ignacio Garbayo Fernández</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/57d8c9f4a752ecdefbf6cf81f482cc11.jpg" alt="Marc Rodríguez" style="width:136px;height:136px;object-fit:cover;border:5px solid #4285F4;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Marc Rodríguez</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/7bfdf405747e7042efbf0da082d7a8df.jpg" alt="Andrés Osorio Leyenda" style="width:136px;height:136px;object-fit:cover;border:5px solid #EA4335;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Andrés Osorio Leyenda</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/b6eed1a145cb212c46421a5ddb8dae18.png" alt="Carlos Mota" style="width:136px;height:136px;object-fit:cover;border:5px solid #F9AB00;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Carlos Mota</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/00a09f87ce1becdf0c6892f42e1a9a11.png" alt="Miguel González" style="width:136px;height:136px;object-fit:cover;border:5px solid #34A853;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Miguel González</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/7b005f003c43bc36c74c3dafdbfa66a4.jpg" alt="Miguel Darío García Quintas" style="width:136px;height:136px;object-fit:cover;border:5px solid #4285F4;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Miguel Darío García Quintas</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/4ae9e92b01b9c1f67d99da49a7e9b134.jpg" alt="David Martinez" style="width:136px;height:136px;object-fit:cover;border:5px solid #EA4335;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">David Martinez</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/bdbca27157575ee0cc71497017d5554d.jpg" alt="Pablo Pazos" style="width:136px;height:136px;object-fit:cover;border:5px solid #F9AB00;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Pablo Pazos</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/43cc4d1ef74659bbaa0612668deb97d6.jpg" alt="Celtia Castelo Gajino" style="width:136px;height:136px;object-fit:cover;border:5px solid #34A853;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Celtia Castelo Gajino</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/5f64874e3d75feac12ae2378ac86e438.jpg" alt="Darío López Froján" style="width:136px;height:136px;object-fit:cover;border:5px solid #4285F4;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Darío López Froján</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/be3c96efcc06eb3443c83fc11c10f62c.jpg" alt="Jesús Ferreira Rodríguez" style="width:136px;height:136px;object-fit:cover;border:5px solid #EA4335;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Jesús Ferreira Rodríguez</p>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<img src="/presentacion/assets/c2948110f1a96cb8e95584763c2fe947.png" alt="Manuel Torrecilla" style="width:136px;height:136px;object-fit:cover;border:5px solid #F9AB00;border-radius:50%">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:24px;line-height:1.2;text-align:center">Manuel Torrecilla</p>
+</div>
+</div>
+
+</section>
+
+<section id="empezamos" data-transition="fade" style="background:#1A1A1A;color:#F0F0F0;font-family:GSD, Arial, sans-serif;padding:112px 128px 128px;display:flex;flex-direction:column;justify-content:center;gap:56px">
+<img src="/presentacion/assets/c2e5ba0d64156b47ee181f239a407b8a.png" alt="Código QR a devfest.gdg-sdc.org" style="position:absolute;right:40px;top:40px;width:150px;height:150px;object-fit:contain;background:#FFFFFF;border:3px solid #1A1A1A;border-radius:20px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;letter-spacing:3px;color:#F9AB00">A las 16:20</p>
+<h1 style="font-family:'GSD Bold', Arial, sans-serif;font-size:160px;font-weight:700;line-height:1">¡Empezamos!</h1>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px">
+<div style="flex:1;display:flex;flex-direction:row;align-items:center;gap:32px;background:#2A2A2A;border:4px solid #8AB4F8;border-radius:32px;padding:40px">
+<div style="display:flex;flex-direction:row;gap:0px">
+<img src="/presentacion/assets/afb6a722fff051bc7863271dca81556d.jpg" alt="Diego Rodríguez Varela" style="width:120px;height:120px;object-fit:cover;border:4px solid #F0F0F0;border-radius:50%">
+<img src="/presentacion/assets/382e4f41f0b7aa1a4d5b1a76bc674610.jpg" alt="Unai Zorrilla" style="width:120px;height:120px;object-fit:cover;border:4px solid #F0F0F0;border-radius:50%">
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px">
+<p style="font-size:24px;color:#8AB4F8;text-transform:uppercase;letter-spacing:2px">Salón de actos · aquí</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:36px;line-height:1.2">Empezando mi carrera en la era de la IA</p>
+<p style="font-size:26px;color:#D6D6D6">Diego Rodríguez Varela y Unai Zorrilla</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:row;align-items:center;gap:32px;background:#2A2A2A;border:4px solid #81C995;border-radius:32px;padding:40px">
+<img src="/presentacion/assets/a98dba0111e8ace7e803c895ec1aa0db.jpg" alt="Iñaki Quenerapú" style="width:120px;height:120px;object-fit:cover;border:4px solid #F0F0F0;border-radius:50%">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px">
+<p style="font-size:24px;color:#81C995;text-transform:uppercase;letter-spacing:2px">Aula A6</p>
+<p style="font-family:'GSD Bold', Arial, sans-serif;font-weight:700;font-size:36px;line-height:1.2">365pelis.com</p>
+<p style="font-size:26px;color:#D6D6D6">Iñaki Quenerapú</p>
+</div>
+</div>
+</div>
+<p style="font-size:32px;color:#D6D6D6">Disfrutad del DevFest. Cualquier cosa, buscad a alguien de la organización.</p>
+
+</section>
+
+</div>
+<div id="ui"><span id="n"></span> · ←/→ · F pantalla completa</div>
+<script>
+const st=document.getElementById('stage'),S=[...st.children],N=document.getElementById('n');let i=0;
+function fit(){const k=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`translate(-50%,-50%) scale(${k})`}
+function go(j){i=Math.max(0,Math.min(S.length-1,j));S.forEach((s,x)=>s.classList.toggle('on',x===i));N.textContent=`${i+1} / ${S.length}`;history.replaceState(null,'','#'+(i+1))}
+addEventListener('resize',fit);
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(e.key)){e.preventDefault();go(i+1)}else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();go(i-1)}else if(e.key==='Home')go(0);else if(e.key==='End')go(S.length-1);else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
+addEventListener('click',e=>go(e.clientX<innerWidth/3?i-1:i+1));
+let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)go(d<0?i+1:i-1);x0=null});
+fit();go((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

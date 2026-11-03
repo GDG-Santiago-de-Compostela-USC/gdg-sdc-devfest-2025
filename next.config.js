@@ -38,7 +38,9 @@ module.exports = {
   async rewrites() {
     return [
       { source: '/2025', destination: '/2025/index.html' },
-      { source: '/2025/:path+', destination: '/2025/:path+/index.html' }
+      { source: '/2025/:path+', destination: '/2025/:path+/index.html' },
+      // Presentación de apertura del DevFest 2026 (public/presentacion)
+      { source: '/presentacion', destination: '/presentacion/index.html' }
     ];
   },
   async redirects() {
