@@ -36,6 +36,8 @@ type Props = {
   children: React.ReactNode;
   className?: string;
   hideNav?: boolean;
+  // Páginas de una sola pantalla (p. ej. /ourense): sin pie, para que no haya nada que bajar
+  hideFooter?: boolean;
   layoutStyles?: any;
   isLive?: boolean;
 };
@@ -44,6 +46,7 @@ export default function Layout({
   children,
   className,
   hideNav,
+  hideFooter,
   layoutStyles,
   isLive = false
 }: Props) {
@@ -94,7 +97,7 @@ export default function Layout({
             <SkipNavContent />
             <div className={cn(styles.full, className)}>{children}</div>
           </main>
-          {!activeRoute.startsWith('/stage') && <Footer />}
+          {!hideFooter && !activeRoute.startsWith('/stage') && <Footer />}
         </div>
       </div>
     </>

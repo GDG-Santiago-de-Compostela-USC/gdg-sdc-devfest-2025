@@ -37,6 +37,18 @@ export const EVENT_DAYS = [
   { date: '2026-11-04', label: 'Miércoles 4 de noviembre', start: '16:00', end: '20:15' },
   { date: '2026-11-05', label: 'Jueves 5 de noviembre', start: '12:00', end: '20:15' }
 ];
+// Álbum compartido de Google Fotos del DevFest 2026. La corta es la que se enseña (QR y enlace);
+// la larga es la que lee /fotos, porque la corta pasa por una página intermedia si la pide un servidor.
+export const FOTOS_URL = 'https://photos.app.goo.gl/DT56SgxzYphGD16d8';
+export const FOTOS_ALBUM_URL =
+  process.env.FOTOS_ALBUM_URL ||
+  'https://photos.google.com/share/AF1QipO4m6lvThNsWfrV7rvwrl0j8X6Rgt9WIvtKyH-WuIafPxuMZRUcMUQGJKIKYmImug?key=NGl3VHBfcFZ5OHR0MU9UWVFodjc2TEEzUm93cGtB';
+
+// Entrada gratuita al DevFest Ourense para quien viene al de Santiago. El código va en el enlace.
+export const OURENSE_REGISTRO_URL =
+  'https://gdg.community.dev/events/details/google-gdg-ourense-presents-devfest-2026/?code=FREEGDGSCQ';
+export const OURENSE_WEB_URL = 'https://devfest.gdgourense.es';
+
 export const TWEET_TEXT = META_DESCRIPTION;
 export const COOKIE = 'user-id';
 
@@ -69,6 +81,14 @@ export const NAVIGATION = [
   {
     name: 'Equipo',
     route: '/team'
+  },
+  {
+    name: 'Fotos',
+    route: '/fotos'
+  },
+  {
+    name: 'DevFest Ourense',
+    route: '/ourense'
   },
   {
     name: 'Edición 2025',
