@@ -24,7 +24,6 @@ export default function OurensePage() {
             <div className="flex min-w-0 flex-col gap-5 xl:gap-6">
               <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
                 <div className="flex items-center gap-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src="/ourense/logo-gdg-ourense.png"
                     alt=""
@@ -94,7 +93,6 @@ export default function OurensePage() {
                     background: `linear-gradient(90deg, ${COLORS[0]} 0% 25%, ${COLORS[1]} 25% 50%, ${COLORS[2]} 50% 75%, ${COLORS[3]} 75%)`
                   }}
                 />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/qr/qr-ourense.png"
                   alt="Código QR para registrarte gratis en el DevFest Ourense 2026"

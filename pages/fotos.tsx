@@ -65,7 +65,6 @@ function SubeTusFotos() {
             background: `linear-gradient(90deg, ${COLORS[0]} 0% 25%, ${COLORS[1]} 25% 50%, ${COLORS[2]} 50% 75%, ${COLORS[3]} 75%)`
           }}
         />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/qr/qr-fotos.png"
           alt="Código QR del álbum de fotos del DevFest Santiago 2026"

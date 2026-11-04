@@ -64,7 +64,6 @@ export default function PhotoGallery({ photos }: { photos: AlbumPhoto[] }) {
                 } as React.CSSProperties
               }
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={photoSrc(photo, big ? 1200 : 700)}
                 alt=""
@@ -107,7 +106,6 @@ export default function PhotoGallery({ photos }: { photos: AlbumPhoto[] }) {
 
             <div className="relative flex min-h-0 w-full max-w-[1400px] flex-1 items-center justify-center">
               {current && (
-                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   key={current.id}
                   src={photoSrc(current, 1800)}
