@@ -4,14 +4,14 @@ import Page from '@components/page';
 import Layout from '@components/layout';
 import LinkButton from '@components/hms/LinkButton';
 
-import { OURENSE_REGISTRO_URL, OURENSE_WEB_URL, SITE_NAME } from '@lib/constants';
+import { OURENSE_REGISTRO_URL, OURENSE_WEB_URL } from '@lib/constants';
 
 const COLORS = ['#4285f4', '#ea4335', '#f9ab00', '#34a853'];
 
 // Una sola pantalla en escritorio: el alto es el de la ventana menos la cabecera, sin pie.
 export default function OurensePage() {
   const meta = {
-    title: 'DevFest Ourense - ' + SITE_NAME,
+    title: 'DevFest Ourense 2026 - DevFest Santiago de Compostela',
     description:
       'Entrada gratuita al DevFest Ourense 2026 por venir al DevFest Santiago: sábado 7 de noviembre, desde las 9:00, en la ESEI.'
   };

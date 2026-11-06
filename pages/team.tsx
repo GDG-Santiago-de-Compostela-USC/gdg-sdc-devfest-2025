@@ -45,7 +45,7 @@ export default function Team({ teamMembers }: Props) {
       <Layout>
         <PageHero
           title="Equipo"
-          description="Las personas de GDG Santiago de Compostela que organizan el DevFest 2026."
+          description="Las personas de GDG Santiago de Compostela que organizan el DevFest."
         >
           <LinkButton href="mailto:devfest@gdg-sdc.org">
             <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -19,12 +19,12 @@ import { SkipNavContent } from '@reach/skip-nav';
 
 import Page from '@components/page';
 import ConfContent from '@components/index';
-import { META_DESCRIPTION, NEXT_EDITION_NAME } from '@lib/constants';
+import { META_DESCRIPTION, SITE_NAME } from '@lib/constants';
 
 export default function Conf() {
   const { query } = useRouter();
   const meta = {
-    title: NEXT_EDITION_NAME,
+    title: SITE_NAME,
     description: META_DESCRIPTION
   };
   const ticketNumber = query.ticketNumber?.toString();

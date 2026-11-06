@@ -39,12 +39,21 @@ module.exports = {
     return [
       { source: '/2025', destination: '/2025/index.html' },
       { source: '/2025/:path+', destination: '/2025/:path+/index.html' },
+      // Archivo estático de la edición 2026 (public/2026, export del commit 9db4942 con basePath /2026)
+      { source: '/2026', destination: '/2026/index.html' },
+      { source: '/2026/:path+', destination: '/2026/:path+/index.html' },
       // Presentación de apertura del DevFest 2026 (public/presentacion)
       { source: '/presentacion', destination: '/presentacion/index.html' }
     ];
   },
   async redirects() {
     return [
+      // Las páginas de la edición 2026 viven ya en el archivo (enlaces y QR antiguos)
+      { source: '/agenda', destination: '/2026/agenda', permanent: false },
+      { source: '/partners', destination: '/2026/partners', permanent: false },
+      { source: '/speakers', destination: '/2026/speakers', permanent: false },
+      { source: '/speakers/:slug', destination: '/2026/speakers/:slug', permanent: false },
+      { source: '/sessions/:slug', destination: '/2026/sessions/:slug', permanent: false },
       {
         source: '/live',
         destination: 'https://sessionize.com/gdg-devfest-2025/',

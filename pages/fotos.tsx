@@ -7,7 +7,7 @@ import PageHero from '@components/page-hero';
 import PhotoGallery from '@components/photo-gallery';
 
 import { AlbumPhoto, getAlbum } from '@lib/google-photos';
-import { FOTOS_URL, SITE_NAME } from '@lib/constants';
+import { FOTOS_URL } from '@lib/constants';
 
 // null = no se ha podido leer el álbum; [] = aún no tiene fotos
 type Props = { photos: AlbumPhoto[] | null };
@@ -16,7 +16,7 @@ const COLORS = ['#4285f4', '#ea4335', '#f9ab00', '#34a853'];
 
 export default function FotosPage({ photos }: Props) {
   const meta = {
-    title: 'Fotos - ' + SITE_NAME,
+    title: 'Fotos 2026 - DevFest Santiago de Compostela',
     description: 'Las fotos del DevFest Santiago 2026, subidas por quienes estuvieron allí.'
   };
 
@@ -24,7 +24,7 @@ export default function FotosPage({ photos }: Props) {
     <Page meta={meta}>
       <Layout>
         <PageHero
-          title="Fotos"
+          title="Fotos 2026"
           description="El DevFest Santiago 2026 visto por quienes estáis aquí. Sube tus fotos al álbum compartido y aparecerán en esta página."
         />
 

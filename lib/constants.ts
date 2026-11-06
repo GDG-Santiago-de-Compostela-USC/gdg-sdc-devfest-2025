@@ -19,7 +19,7 @@ export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_U
 export const TWITTER_USER_NAME = 'GDGSantiagoES';
 export const BRAND_NAME = 'GDG Santiago de Compostela';
 export const SITE_NAME_MULTILINE = ['DevFest', 'Santiago de Compostela'];
-export const SITE_NAME = 'DevFest Santiago de Compostela 2026';
+export const SITE_NAME = 'DevFest Santiago de Compostela 2027';
 export const META_DESCRIPTION =
   'DevFest Santiago de Compostela es una conferencia tecnológica organizada por Google Developers Group Santiago de Compostela. Los GDG son una red local de grupos sin ánimo de lucro ofrecen charlas, demostraciones prácticas, talleres y laboratorios de código sobre las últimas tecnologías de Google. En 2022, se celebraron más de 550 DevFests, que ayudaron a más de 320.000 desarrolladores. DevFest es el principal evento local para que los desarrolladores conozcan las últimas tecnologías de Google de la mano de Googlers, Google Developer Experts y ponentes del sector.';
 export const SITE_DESCRIPTION =
@@ -28,9 +28,7 @@ export const DATE = '4 y 5 de Noviembre 2026';
 export const SHORT_DATE = '4-5 Nov';
 export const FULL_DATE = '4-5 Nov';
 
-// La portada ya anuncia la próxima edición. El resto de páginas (agenda, speakers, fotos)
-// siguen siendo de la de 2026 y usan SITE_NAME.
-export const NEXT_EDITION_NAME = 'DevFest Santiago de Compostela 2027';
+// La web principal anuncia ya la edición 2027; la de 2026 está archivada en /2026.
 export const NEXT_EDITION_DATE = 'Próximamente';
 
 // Charlas, ponentes y agenda salen del panel de gestión del equipo (devfest-gestion.vercel.app).
@@ -67,37 +65,17 @@ export const CODE_OF_CONDUCT =
 export const REPO = 'https://github.com/ACMCMC/gdg-sdc-devfest-2025';
 export const SAMPLE_TICKET_NUMBER = 1234;
 export const NAVIGATION = [
-  /*{
-    name: 'En directo',
-    route: 'https://gdg-devfest-2025.sessionize.com/'
-  },*/
-  {
-    name: 'Agenda',
-    route: '/agenda'
-  },
-  {
-    name: 'Sponsors',
-    route: '/partners'
-  },
-  {
-    name: 'Speakers',
-    route: '/speakers'
-  },
   {
     name: 'Equipo',
     route: '/team'
   },
   {
-    name: 'Fotos',
+    name: 'Fotos 2026',
     route: '/fotos'
   },
   {
     name: 'DevFest Ourense',
     route: '/ourense'
-  },
-  {
-    name: 'Edición 2025',
-    route: '/2025'
   },
   /*{
     name: 'Live Stage',
