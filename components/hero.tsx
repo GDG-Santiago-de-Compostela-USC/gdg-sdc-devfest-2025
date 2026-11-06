@@ -17,7 +17,8 @@
 import cn from 'classnames';
 import styleUtils from './utils.module.css';
 import styles from './hero.module.css';
-import { BRAND_NAME, DATE, SHORT_DATE, SITE_DESCRIPTION, SITE_NAME } from '@lib/constants';
+import { NEXT_EDITION_DATE, NEXT_EDITION_NAME, SITE_DESCRIPTION } from '@lib/constants';
+import Link from 'next/link';
 import Logo from './logo';
 import IconLogo from './icons/icon-logo';
 import { GradientBackground } from './GradientBackground';
@@ -34,7 +35,7 @@ export default function Hero() {
         <h1 className={cn(styleUtils.appear, styleUtils['appear-third'], /*styles.rainbow_text,*/ styles.hero)}>
 
           {/*<br className={styleUtils['show-on-desktop']} />*/}
-          {SITE_NAME}
+          {NEXT_EDITION_NAME}
         </h1>
         <h2
           className={cn(
@@ -46,21 +47,12 @@ export default function Hero() {
           {SITE_DESCRIPTION}
         </h2>
         <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.info)}>
-          <p className='block md:hidden text-center'>{SHORT_DATE}</p>
-          <p className='hidden md:block text-center'>{DATE}</p>
-        </div>
-        <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.location)}>
-          <p className='text-center px-8 normal-case'>
-            <a className={styles.location_link} href='https://maps.app.goo.gl/GFdS8heX79PLecbj6' target='_blank' rel='noopener noreferrer'>
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-              Escuela Técnica Superior de Ingeniería, USC
-            </a>
-          </p>
+          <p className='text-center'>{NEXT_EDITION_DATE}</p>
         </div>
         <div className={cn(styleUtils.appear, styleUtils['appear-fifth'], styles.button_container)}>
-          <a className={styles.button + " px-12"} href='https://gdg.community.dev/events/details/google-gdg-santiago-de-compostela-presents-devfest-santiago-de-compostela-2026/' target='_blank' rel='noopener noreferrer'>
-            Reserva ya tu entrada
-          </a>
+          <Link className={styles.button + " px-12"} href='/fotos'>
+            Revive la edición 2026
+          </Link>
         </div>
       </div>
       <GradientBackground
